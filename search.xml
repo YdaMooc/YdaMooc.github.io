@@ -1,10 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello Blog</title>
-    <url>/2024/09/13/hello-world/</url>
-    <content><![CDATA[<p>你好，这是我的第一篇博客。</p>
+    <title>ESP32驱动TFT显示屏（配置+自定义字库）</title>
+    <url>/2024/09/15/ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h1><h2 id="（一）硬件设备"><a href="#（一）硬件设备" class="headerlink" title="（一）硬件设备"></a>（一）硬件设备</h2><ol>
+<li><p>ESP32开发板（本文所使用的是嘉立创的ESP32S3R8N8）<br><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/esp32.png"></p>
+</li>
+<li><p>1.8寸TFT显示屏(型号：ST7735S)<br><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/tft.png"></p>
+</li>
+</ol>
+<h2 id="（二）软件环境"><a href="#（二）软件环境" class="headerlink" title="（二）软件环境"></a>（二）软件环境</h2><ol>
+<li><p>编译软件：<a href="https://www.arduino.cc/en/software">Arduino IDE 2.3.2</a></p>
+</li>
+<li><p>ESP32开发板包：<a href="https://github.com/espressif/arduino-esp32">esp32 2.0.14</a></p>
+</li>
+<li><p>TFT显示驱动：<a href="https://github.com/Bodmer/TFT_eSPI">TFT_eSPI 2.5.43</a></p>
+</li>
+<li><p><a href="https://processing.org/">processing软件</a> 用于生成字库</p>
+</li>
+</ol>
+<p>注意：</p>
+<ul>
+<li>ESP32开发板包的版本不能高于2.0.14，否则烧录后，显示屏无法正常工作（白屏）</li>
+</ul>
+<h1 id="二、硬件连接"><a href="#二、硬件连接" class="headerlink" title="二、硬件连接"></a>二、硬件连接</h1><p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/connect.png"></p>
+<h1 id="三、软件设置"><a href="#三、软件设置" class="headerlink" title="三、软件设置"></a>三、软件设置</h1><ol>
+<li>在Arduino IDE中安装ESP32开发板包和TFT_eSPI库后，打开Arduino的项目文件夹目录（可在IDE的文件-&gt;首选项中查看），然后打开libraries&#x2F;TFT_eSPI&#x2F;User_Setup.h</li>
+</ol>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image1.png"></p>
+<ol start="2">
+<li>定义驱动，打开User_Setup.h后，找到 “&#x2F;&#x2F; Only define one driver, the other ones must be commented out” 这一行，将原来的define注释掉，并且取消注释 #define ST7735_DRIVER</li>
+</ol>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image2.png"></p>
+<ol start="3">
+<li>定义颜色顺序，找到 #define TFT_RGB_ORDER TFT_RGB 取消掉注释（在76行）</li>
+</ol>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image3.png"></p>
+<ol start="4">
+<li>设置显示屏的长宽像素，我的是1.8寸，也就是128x160，找到下面的83行开始，分别找到 “#define TFT_WIDTH  128” 和 “ #define TFT_HEIGHT 160” 取消注释</li>
+</ol>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image4.png"></p>
+<ol start="5">
+<li>引脚定义，找到170行开始，将默认的引脚定义注释掉，然后找到223行取消掉注释，并且将引脚号修改成我们前面设置的引脚号</li>
+</ol>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image5.png"></p>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image6.png"></p>
+<ol start="6">
+<li>测试例程，打开IDE，点左上角的文件-&gt;示例-&gt;TFT eSPI-&gt;160*128-&gt;TFT Clock 例程，设置好串口和板子之后，点击上传，能够正常显示，就说明配置成功了。</li>
+</ol>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image7.png"></p>
+<p>测试成功则如下：</p>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/test.png"></p>
+<ol start="7">
+<li>注意：</li>
+</ol>
+<ul>
+<li>如果在编译的时候，出现下面这些警告是因为我们没用定义TOUCH_CS引脚，并不会影响我们操作TFT屏，可以忽略。</li>
+<li>如果觉得不舒服，可以在User_Setup.h文件中找到230行，也就是定义引脚的后面，将 #define TOUCH_CS 取消注释，然后设置一个不会影响操作的引脚就可以了。</li>
+</ul>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image8.png"></p>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image9.png"></p>
+<h1 id="四、自定义字库显示"><a href="#四、自定义字库显示" class="headerlink" title="四、自定义字库显示"></a>四、自定义字库显示</h1><h2 id="（一）生成Unicode代码"><a href="#（一）生成Unicode代码" class="headerlink" title="（一）生成Unicode代码"></a>（一）生成Unicode代码</h2><p>确定好需要生成的汉字后，打开<a href="https://tool.chinaz.com/tools/unicode.aspx">Unicode编码转换</a>，将需要自定义的文字（符号也可以）粘贴，然后点击 “中文 转 Unicode” 就可以得到转换后的Unicode编码</p>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image10.png"></p>
+<p>然后将得到的Unicode编码改写成0x开头的数据备用</p>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image11.png"></p>
+<h2 id="（二）生成字库"><a href="#（二）生成字库" class="headerlink" title="（二）生成字库"></a>（二）生成字库</h2><ol>
+<li>安装好processing后，再次打开TFT_eSPI库的目录，然后打开到Tools\Create_Smooth_Font\Create_font 目录下</li>
+</ol>
+<ul>
+<li>data文件夹是用来存放字体的</li>
+<li>FontFiles文件夹是用来存放生成的字库的</li>
+<li>Create_font.pde是官方自带的生成字</li>
+</ul>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image12.png"></p>
+<ol start="2">
+<li>打开 C:\Windows\Fonts 找到自己适合的字体，然后复制粘贴进data文件夹里面，这里我选择的是新宋体（simsun）</li>
+</ol>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image13.png"></p>
+<ol start="3">
+<li>打开Create_font.pde，在130行的字体名称改成刚刚放进data文件夹里面的字体名称，然后在132行，根据字体文件的后缀修改成对应的后缀就行了。我所用到的字体名字叫做simsun，后缀是.ttc</li>
+</ol>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image15.png"></p>
+<ol start="4">
+<li>在137行设置所生成的字体的大小，这里我选择的是24</li>
+</ol>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image14.png"></p>
+<ol start="5">
+<li>在330行找到specificUnicodes数组，将里面的内容清空，然后把前面转换并且改好格式的Unicode编码粘贴进来</li>
+</ol>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image16.png"></p>
+<ol start="6">
+<li>然后点击运行，就可以在FontFiles文件夹里面看到生成的字库了（运行后会有一个预览窗口，直接关闭就可以了）</li>
+</ol>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image17.png"></p>
+<h2 id="（三）使用字库"><a href="#（三）使用字库" class="headerlink" title="（三）使用字库"></a>（三）使用字库</h2><ol>
+<li>打开Arduino IDE，新建一个项目并且保存，然后打开项目根目录，将前面所生成的.h文件放到根目录里面</li>
+</ol>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image18.png"></p>
+<ol start="2">
+<li>进入IDE就会发现多了一个.h文件出来，我们点进去，就可以看到字库的名字了，我这里是 “simsun24”</li>
+</ol>
+<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image19.png"></p>
+<ol start="3">
+<li>在项目文件里面写入以下代码，然后编译运行就可以了。</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;TFT_eSPI.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;SPI.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;simsun24.h&quot;</span>  <span class="comment">// 引入字库</span></span></span><br><span class="line"></span><br><span class="line">TFT_eSPI tft = TFT_eSPI();  <span class="comment">// 创建tft显示对象</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">setup</span><span class="params">()</span> &#123;</span><br><span class="line">  tft.init();                   <span class="comment">// 初始化对象</span></span><br><span class="line">  tft.setRotation(<span class="number">1</span>);           <span class="comment">// 设置为横屏</span></span><br><span class="line">  tft.setTextColor(TFT_WHITE);  <span class="comment">// 设置字体颜色为白色</span></span><br><span class="line">  tft.fillScreen(TFT_BLACK);    <span class="comment">// 设置字体背景颜色为黑色</span></span><br><span class="line">  tft.loadFont(simsun24);       <span class="comment">// 设置所使用的字库为simsun24</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">loop</span><span class="params">()</span> &#123;</span><br><span class="line">  tft.setCursor(<span class="number">0</span>, <span class="number">5</span>);                          <span class="comment">// 设置显示位置</span></span><br><span class="line">  tft.println(<span class="string">&quot;你好，一起学习自定义中文字库&quot;</span>);  <span class="comment">// 在屏幕上打印内容</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>) &#123;&#125;                                  <span class="comment">// 防止屏幕一直刷新</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后效果如下：<br><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/test2.png"></p>
+<h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h1><p>如果要使用TFT_eSPI库驱动别的显示器，得去<a href="https://github.com/Bodmer/TFT_eSPI">官方</a>去查询是否支持所使用的开发板或者显示器，如果支持就可以通过修改User_Setup.h里面的配置文件来使用。更多例程或者介绍请自行查阅<a href="https://github.com/Bodmer/TFT_eSPI">官方资料。</a></p>
 ]]></content>
+      <categories>
+        <category>嵌入式</category>
+        <category>ESP32</category>
+      </categories>
+      <tags>
+        <tag>嵌入式</tag>
+        <tag>ESP32</tag>
+        <tag>TFT</tag>
+        <tag>ST7735S</tag>
+      </tags>
   </entry>
   <entry>
     <title>使用finalshell连接虚拟机（Ubuntu）</title>
@@ -351,126 +465,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ESP32驱动TFT显示屏（配置+自定义字库）</title>
-    <url>/2024/09/15/ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h1><h2 id="（一）硬件设备"><a href="#（一）硬件设备" class="headerlink" title="（一）硬件设备"></a>（一）硬件设备</h2><ol>
-<li><p>ESP32开发板（本文所使用的是嘉立创的ESP32S3R8N8）<br><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/esp32.png"></p>
-</li>
-<li><p>1.8寸TFT显示屏(型号：ST7735S)<br><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/tft.png"></p>
-</li>
-</ol>
-<h2 id="（二）软件环境"><a href="#（二）软件环境" class="headerlink" title="（二）软件环境"></a>（二）软件环境</h2><ol>
-<li><p>编译软件：<a href="https://www.arduino.cc/en/software">Arduino IDE 2.3.2</a></p>
-</li>
-<li><p>ESP32开发板包：<a href="https://github.com/espressif/arduino-esp32">esp32 2.0.14</a></p>
-</li>
-<li><p>TFT显示驱动：<a href="https://github.com/Bodmer/TFT_eSPI">TFT_eSPI 2.5.43</a></p>
-</li>
-<li><p><a href="https://processing.org/">processing软件</a> 用于生成字库</p>
-</li>
-</ol>
-<p>注意：</p>
-<ul>
-<li>ESP32开发板包的版本不能高于2.0.14，否则烧录后，显示屏无法正常工作（白屏）</li>
-</ul>
-<h1 id="二、硬件连接"><a href="#二、硬件连接" class="headerlink" title="二、硬件连接"></a>二、硬件连接</h1><p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/connect.png"></p>
-<h1 id="三、软件设置"><a href="#三、软件设置" class="headerlink" title="三、软件设置"></a>三、软件设置</h1><ol>
-<li>在Arduino IDE中安装ESP32开发板包和TFT_eSPI库后，打开Arduino的项目文件夹目录（可在IDE的文件-&gt;首选项中查看），然后打开libraries&#x2F;TFT_eSPI&#x2F;User_Setup.h</li>
-</ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image1.png"></p>
-<ol start="2">
-<li>定义驱动，打开User_Setup.h后，找到 “&#x2F;&#x2F; Only define one driver, the other ones must be commented out” 这一行，将原来的define注释掉，并且取消注释 #define ST7735_DRIVER</li>
-</ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image2.png"></p>
-<ol start="3">
-<li>定义颜色顺序，找到 #define TFT_RGB_ORDER TFT_RGB 取消掉注释（在76行）</li>
-</ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image3.png"></p>
-<ol start="4">
-<li>设置显示屏的长宽像素，我的是1.8寸，也就是128x160，找到下面的83行开始，分别找到 “#define TFT_WIDTH  128” 和 “ #define TFT_HEIGHT 160” 取消注释</li>
-</ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image4.png"></p>
-<ol start="5">
-<li>引脚定义，找到170行开始，将默认的引脚定义注释掉，然后找到223行取消掉注释，并且将引脚号修改成我们前面设置的引脚号</li>
-</ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image5.png"></p>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image6.png"></p>
-<ol start="6">
-<li>测试例程，打开IDE，点左上角的文件-&gt;示例-&gt;TFT eSPI-&gt;160*128-&gt;TFT Clock 例程，设置好串口和板子之后，点击上传，能够正常显示，就说明配置成功了。</li>
-</ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image7.png"></p>
-<p>测试成功则如下：</p>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/test.png"></p>
-<ol start="7">
-<li>注意：</li>
-</ol>
-<ul>
-<li>如果在编译的时候，出现下面这些警告是因为我们没用定义TOUCH_CS引脚，并不会影响我们操作TFT屏，可以忽略。</li>
-<li>如果觉得不舒服，可以在User_Setup.h文件中找到230行，也就是定义引脚的后面，将 #define TOUCH_CS 取消注释，然后设置一个不会影响操作的引脚就可以了。</li>
-</ul>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image8.png"></p>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image9.png"></p>
-<h1 id="四、自定义字库显示"><a href="#四、自定义字库显示" class="headerlink" title="四、自定义字库显示"></a>四、自定义字库显示</h1><h2 id="（一）生成Unicode代码"><a href="#（一）生成Unicode代码" class="headerlink" title="（一）生成Unicode代码"></a>（一）生成Unicode代码</h2><p>确定好需要生成的汉字后，打开<a href="https://tool.chinaz.com/tools/unicode.aspx">Unicode编码转换</a>，将需要自定义的文字（符号也可以）粘贴，然后点击 “中文 转 Unicode” 就可以得到转换后的Unicode编码</p>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image10.png"></p>
-<p>然后将得到的Unicode编码改写成0x开头的数据备用</p>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image11.png"></p>
-<h2 id="（二）生成字库"><a href="#（二）生成字库" class="headerlink" title="（二）生成字库"></a>（二）生成字库</h2><ol>
-<li>安装好processing后，再次打开TFT_eSPI库的目录，然后打开到Tools\Create_Smooth_Font\Create_font 目录下</li>
-</ol>
-<ul>
-<li>data文件夹是用来存放字体的</li>
-<li>FontFiles文件夹是用来存放生成的字库的</li>
-<li>Create_font.pde是官方自带的生成字</li>
-</ul>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image12.png"></p>
-<ol start="2">
-<li>打开 C:\Windows\Fonts 找到自己适合的字体，然后复制粘贴进data文件夹里面，这里我选择的是新宋体（simsun）</li>
-</ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image13.png"></p>
-<ol start="3">
-<li>打开Create_font.pde，在130行的字体名称改成刚刚放进data文件夹里面的字体名称，然后在132行，根据字体文件的后缀修改成对应的后缀就行了。我所用到的字体名字叫做simsun，后缀是.ttc</li>
-</ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image15.png"></p>
-<ol start="4">
-<li>在137行设置所生成的字体的大小，这里我选择的是24</li>
-</ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image14.png"></p>
-<ol start="5">
-<li>在330行找到specificUnicodes数组，将里面的内容清空，然后把前面转换并且改好格式的Unicode编码粘贴进来</li>
-</ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image16.png"></p>
-<ol start="6">
-<li>然后点击运行，就可以在FontFiles文件夹里面看到生成的字库了（运行后会有一个预览窗口，直接关闭就可以了）</li>
-</ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image17.png"></p>
-<h2 id="（三）使用字库"><a href="#（三）使用字库" class="headerlink" title="（三）使用字库"></a>（三）使用字库</h2><ol>
-<li>打开Arduino IDE，新建一个项目并且保存，然后打开项目根目录，将前面所生成的.h文件放到根目录里面</li>
-</ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image18.png"></p>
-<ol start="2">
-<li>进入IDE就会发现多了一个.h文件出来，我们点进去，就可以看到字库的名字了，我这里是 “simsun24”</li>
-</ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image19.png"></p>
-<ol start="3">
-<li>在项目文件里面写入以下代码，然后编译运行就可以了。</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;TFT_eSPI.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;SPI.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;simsun24.h&quot;</span>  <span class="comment">// 引入字库</span></span></span><br><span class="line"></span><br><span class="line">TFT_eSPI tft = TFT_eSPI();  <span class="comment">// 创建tft显示对象</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">setup</span><span class="params">()</span> &#123;</span><br><span class="line">  tft.init();                   <span class="comment">// 初始化对象</span></span><br><span class="line">  tft.setRotation(<span class="number">1</span>);           <span class="comment">// 设置为横屏</span></span><br><span class="line">  tft.setTextColor(TFT_WHITE);  <span class="comment">// 设置字体颜色为白色</span></span><br><span class="line">  tft.fillScreen(TFT_BLACK);    <span class="comment">// 设置字体背景颜色为黑色</span></span><br><span class="line">  tft.loadFont(simsun24);       <span class="comment">// 设置所使用的字库为simsun24</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">loop</span><span class="params">()</span> &#123;</span><br><span class="line">  tft.setCursor(<span class="number">0</span>, <span class="number">5</span>);                          <span class="comment">// 设置显示位置</span></span><br><span class="line">  tft.println(<span class="string">&quot;你好，一起学习自定义中文字库&quot;</span>);  <span class="comment">// 在屏幕上打印内容</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>) &#123;&#125;                                  <span class="comment">// 防止屏幕一直刷新</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>最后效果如下：<br><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/test2.png"></p>
-<h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h1><p>如果要使用TFT_eSPI库驱动别的显示器，得去<a href="https://github.com/Bodmer/TFT_eSPI">官方</a>去查询是否支持所使用的开发板或者显示器，如果支持就可以通过修改User_Setup.h里面的配置文件来使用。更多例程或者介绍请自行查阅<a href="https://github.com/Bodmer/TFT_eSPI">官方资料。</a></p>
-]]></content>
-      <categories>
-        <category>嵌入式</category>
-        <category>ESP32</category>
-      </categories>
-      <tags>
-        <tag>嵌入式</tag>
-        <tag>ESP32</tag>
-        <tag>TFT</tag>
-        <tag>ST7735S</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>基于STM32的温湿度传感器（DHT11）-OLED屏显示-超详细</title>
     <url>/2024/09/13/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/</url>
     <content><![CDATA[<h1 id="一、前期准备"><a href="#一、前期准备" class="headerlink" title="一、前期准备"></a>一、前期准备</h1><h2 id="（一）软件环境准备"><a href="#（一）软件环境准备" class="headerlink" title="（一）软件环境准备"></a>（一）软件环境准备</h2><p>编译工具为Keil5，对应芯片为：STM32F103C8T6</p>
@@ -758,5 +752,11 @@
         <tag>OLED</tag>
         <tag>DHT11</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello Blog</title>
+    <url>/2024/09/13/hello-world/</url>
+    <content><![CDATA[<p>你好，这是我的第一篇博客。</p>
+]]></content>
   </entry>
 </search>
