@@ -121,116 +121,10 @@
       </tags>
   </entry>
   <entry>
-    <title>使用finalshell连接虚拟机（Ubuntu）</title>
-    <url>/posts/87be2d43/</url>
-    <content><![CDATA[<h1 id="一、下载finalshell"><a href="#一、下载finalshell" class="headerlink" title="一、下载finalshell"></a>一、下载finalshell</h1><p><a href="https://www.hostbuf.com/">FinalShell官网</a></p>
-<blockquote>
-<p>进入官网，选择自己需要的版本下载即可。</p>
-</blockquote>
-<p><img src="/posts/87be2d43/image1.png"></p>
-<hr>
-<h1 id="二、指令输入"><a href="#二、指令输入" class="headerlink" title="二、指令输入"></a>二、指令输入</h1><h2 id="指令1"><a href="#指令1" class="headerlink" title="指令1"></a>指令1</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   这条指令是，更新系统中所有可用软件包的最新版本信息，但不会实际安装或升级软件包。这个命令通常是在安装新软件或升级现有软件之前运行的，以确保获取的是最新的软件包列表。</p>
-</blockquote>
-<p><strong>运行结果：</strong></p>
-<p><img src="/posts/87be2d43/image2.png"></p>
-<h2 id="指令2"><a href="#指令2" class="headerlink" title="指令2"></a>指令2</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install openssh-server -y</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   安装一个能够接受SSH连接的服务器。-y表示在安装过程种自动回答“yes”.</p>
-</blockquote>
-<p><strong>运行结果：</strong></p>
-<p><img src="/posts/87be2d43/image3.png"></p>
-<h2 id="指令3"><a href="#指令3" class="headerlink" title="指令3"></a>指令3</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl start ssh</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   运行SSH服务器是否正在运行。</p>
-</blockquote>
-<p><strong>运行结果：</strong></p>
-<p><img src="/posts/87be2d43/image4.png"></p>
-<h2 id="指令4"><a href="#指令4" class="headerlink" title="指令4"></a>指令4</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl status ssh</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   确定SSH服务器是否正在运行。active (running)表示服务器正在运行。</p>
-</blockquote>
-<p><strong>运行结果：</strong><br> <br><img src="/posts/87be2d43/image5.png"></p>
-<h2 id="指令5"><a href="#指令5" class="headerlink" title="指令5"></a>指令5</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ufw allow ssh</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   允许 SSH 流量通过防火墙。这非常重要，因为防火墙默认情况下会阻止所有传入的连接。通过运行这个命令，就能确保允许来自外部网络的 SSH 连接到系统里。</p>
-</blockquote>
-<p><strong>运行结果：</strong></p>
-<p><img src="/posts/87be2d43/image6.png"></p>
-<h2 id="指令6"><a href="#指令6" class="headerlink" title="指令6"></a>指令6</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ufw allow 22</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   允许通过 22 端口的流量，因为 SSH 默认使用 22 端口。通过运行这个命令，能确保允许来自外部网络的 SSH 连接到系统里。</p>
-</blockquote>
-<p><strong>运行结果：</strong></p>
-<p><img src="/posts/87be2d43/image7.png"></p>
-<h2 id="指令7"><a href="#指令7" class="headerlink" title="指令7"></a>指令7</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   显示当前防火墙的状态。其中可以看到22端口和ssh被防火墙允许通过。</p>
-</blockquote>
-<p><strong>运行结果：</strong></p>
-<p><img src="/posts/87be2d43/iamge8.png"></p>
-<h2 id="指令8"><a href="#指令8" class="headerlink" title="指令8"></a>指令8</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install net-tools -y</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   自动安装 net-tools 软件包，并且不会在安装过程中询问您是否确认。安装完成后，就可以使用 ifconfig 和其他工具来管理和查看网络连接信息。</p>
-</blockquote>
-<p><strong>运行结果：</strong></p>
-<p><img src="/posts/87be2d43/image9.png"></p>
-<h2 id="指令9"><a href="#指令9" class="headerlink" title="指令9"></a>指令9</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   查看虚拟机IP地址</p>
-</blockquote>
-<p><strong>运行结果：</strong></p>
-<p><img src="/posts/87be2d43/iamge10.png"></p>
-<hr>
-<h1 id="三、使用finalshell连接虚拟机"><a href="#三、使用finalshell连接虚拟机" class="headerlink" title="三、使用finalshell连接虚拟机"></a>三、使用finalshell连接虚拟机</h1><blockquote>
-<p>   打开finalshell后，点击左上角，查看连接管理器，然后添加连接，选择SSH连接（Linux）</p>
-</blockquote>
-<p><img src="/posts/87be2d43/image11.png"></p>
-<blockquote>
-<p>   依次输入名称、IP地址和用户名密码等相关信息。输入完后直接按确定即可。</p>
-</blockquote>
-<p><img src="/posts/87be2d43/iamge12.png"></p>
-<blockquote>
-<p>   回到连接管理器中，双击刚刚所添加的连接。</p>
-</blockquote>
-<p><img src="/posts/87be2d43/image13.png"></p>
-<blockquote>
-<p>   出现弹窗口，点击 “接受并保存”，出现连接主机成功的字样就代表我们成功使用finalshell连接上虚拟机了。</p>
-</blockquote>
-<p><img src="/posts/87be2d43/image14.png"></p>
-<p><img src="/posts/87be2d43/image15.png"></p>
-<blockquote>
-<p>   补充：finalshell带有文件管理系统，可以不用进入虚拟机更加方便地进行一些操作 。如下图：</p>
-</blockquote>
-<p><img src="/posts/87be2d43/image16.png"><br>​</p>
+    <title>Hello Blog</title>
+    <url>/posts/ca41cb46/</url>
+    <content><![CDATA[<p>你好，这是我的第一篇博客。</p>
 ]]></content>
-      <categories>
-        <category>Ubuntu</category>
-        <category>finalshell</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>finalshell</tag>
-      </tags>
   </entry>
   <entry>
     <title>基于STM32的土壤湿度传感器（FC-28）-OLED屏显示-超详细</title>
@@ -462,6 +356,118 @@
         <tag>STM32</tag>
         <tag>OLED</tag>
         <tag>FC-28</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用finalshell连接虚拟机（Ubuntu）</title>
+    <url>/posts/87be2d43/</url>
+    <content><![CDATA[<h1 id="一、下载finalshell"><a href="#一、下载finalshell" class="headerlink" title="一、下载finalshell"></a>一、下载finalshell</h1><p><a href="https://www.hostbuf.com/">FinalShell官网</a></p>
+<blockquote>
+<p>进入官网，选择自己需要的版本下载即可。</p>
+</blockquote>
+<p><img src="/posts/87be2d43/image1.png"></p>
+<hr>
+<h1 id="二、指令输入"><a href="#二、指令输入" class="headerlink" title="二、指令输入"></a>二、指令输入</h1><h2 id="指令1"><a href="#指令1" class="headerlink" title="指令1"></a>指令1</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   这条指令是，更新系统中所有可用软件包的最新版本信息，但不会实际安装或升级软件包。这个命令通常是在安装新软件或升级现有软件之前运行的，以确保获取的是最新的软件包列表。</p>
+</blockquote>
+<p><strong>运行结果：</strong></p>
+<p><img src="/posts/87be2d43/image2.png"></p>
+<h2 id="指令2"><a href="#指令2" class="headerlink" title="指令2"></a>指令2</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install openssh-server -y</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   安装一个能够接受SSH连接的服务器。-y表示在安装过程种自动回答“yes”.</p>
+</blockquote>
+<p><strong>运行结果：</strong></p>
+<p><img src="/posts/87be2d43/image3.png"></p>
+<h2 id="指令3"><a href="#指令3" class="headerlink" title="指令3"></a>指令3</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl start ssh</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   运行SSH服务器是否正在运行。</p>
+</blockquote>
+<p><strong>运行结果：</strong></p>
+<p><img src="/posts/87be2d43/image4.png"></p>
+<h2 id="指令4"><a href="#指令4" class="headerlink" title="指令4"></a>指令4</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl status ssh</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   确定SSH服务器是否正在运行。active (running)表示服务器正在运行。</p>
+</blockquote>
+<p><strong>运行结果：</strong><br> <br><img src="/posts/87be2d43/image5.png"></p>
+<h2 id="指令5"><a href="#指令5" class="headerlink" title="指令5"></a>指令5</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ufw allow ssh</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   允许 SSH 流量通过防火墙。这非常重要，因为防火墙默认情况下会阻止所有传入的连接。通过运行这个命令，就能确保允许来自外部网络的 SSH 连接到系统里。</p>
+</blockquote>
+<p><strong>运行结果：</strong></p>
+<p><img src="/posts/87be2d43/image6.png"></p>
+<h2 id="指令6"><a href="#指令6" class="headerlink" title="指令6"></a>指令6</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ufw allow 22</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   允许通过 22 端口的流量，因为 SSH 默认使用 22 端口。通过运行这个命令，能确保允许来自外部网络的 SSH 连接到系统里。</p>
+</blockquote>
+<p><strong>运行结果：</strong></p>
+<p><img src="/posts/87be2d43/image7.png"></p>
+<h2 id="指令7"><a href="#指令7" class="headerlink" title="指令7"></a>指令7</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   显示当前防火墙的状态。其中可以看到22端口和ssh被防火墙允许通过。</p>
+</blockquote>
+<p><strong>运行结果：</strong></p>
+<p><img src="/posts/87be2d43/iamge8.png"></p>
+<h2 id="指令8"><a href="#指令8" class="headerlink" title="指令8"></a>指令8</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install net-tools -y</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   自动安装 net-tools 软件包，并且不会在安装过程中询问您是否确认。安装完成后，就可以使用 ifconfig 和其他工具来管理和查看网络连接信息。</p>
+</blockquote>
+<p><strong>运行结果：</strong></p>
+<p><img src="/posts/87be2d43/image9.png"></p>
+<h2 id="指令9"><a href="#指令9" class="headerlink" title="指令9"></a>指令9</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   查看虚拟机IP地址</p>
+</blockquote>
+<p><strong>运行结果：</strong></p>
+<p><img src="/posts/87be2d43/iamge10.png"></p>
+<hr>
+<h1 id="三、使用finalshell连接虚拟机"><a href="#三、使用finalshell连接虚拟机" class="headerlink" title="三、使用finalshell连接虚拟机"></a>三、使用finalshell连接虚拟机</h1><blockquote>
+<p>   打开finalshell后，点击左上角，查看连接管理器，然后添加连接，选择SSH连接（Linux）</p>
+</blockquote>
+<p><img src="/posts/87be2d43/image11.png"></p>
+<blockquote>
+<p>   依次输入名称、IP地址和用户名密码等相关信息。输入完后直接按确定即可。</p>
+</blockquote>
+<p><img src="/posts/87be2d43/iamge12.png"></p>
+<blockquote>
+<p>   回到连接管理器中，双击刚刚所添加的连接。</p>
+</blockquote>
+<p><img src="/posts/87be2d43/image13.png"></p>
+<blockquote>
+<p>   出现弹窗口，点击 “接受并保存”，出现连接主机成功的字样就代表我们成功使用finalshell连接上虚拟机了。</p>
+</blockquote>
+<p><img src="/posts/87be2d43/image14.png"></p>
+<p><img src="/posts/87be2d43/image15.png"></p>
+<blockquote>
+<p>   补充：finalshell带有文件管理系统，可以不用进入虚拟机更加方便地进行一些操作 。如下图：</p>
+</blockquote>
+<p><img src="/posts/87be2d43/image16.png"><br>​</p>
+]]></content>
+      <categories>
+        <category>Ubuntu</category>
+        <category>finalshell</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>finalshell</tag>
       </tags>
   </entry>
   <entry>
@@ -752,11 +758,5 @@
         <tag>OLED</tag>
         <tag>DHT11</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello Blog</title>
-    <url>/posts/ca41cb46/</url>
-    <content><![CDATA[<p>你好，这是我的第一篇博客。</p>
-]]></content>
   </entry>
 </search>
