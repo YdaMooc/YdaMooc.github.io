@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -18,7 +19,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"ydamooc.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ydamooc.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="本文主要说明土壤湿度传感器（FC-28）在STM32下如何使用，并且结合OLED屏来达到显示的效果。喜欢的话可以点个赞和收藏噢！！以下内容均为查询相关资料撰写而成，如有侵权，请联系作者。">
 <meta property="og:type" content="article">
@@ -27,26 +28,26 @@
 <meta property="og:site_name" content="YdaMooc">
 <meta property="og:description" content="本文主要说明土壤湿度传感器（FC-28）在STM32下如何使用，并且结合OLED屏来达到显示的效果。喜欢的话可以点个赞和收藏噢！！以下内容均为查询相关资料撰写而成，如有侵权，请联系作者。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8(FC-28)-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/tuRangModel.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8(FC-28)-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/STM32.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8(FC-28)-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/OLED.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8(FC-28)-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/ST-LinkV2.png">
+<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/tuRangModel.png">
+<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/STM32.png">
+<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/OLED.png">
+<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/ST-LinkV2.png">
 <meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/22bef194c517c653a2bbe68d6fb51f03.png">
 <meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/fb33d3949ded297fb095c37579d8fc17.png">
 <meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/020b3ec2f0bb890d639edf62ebc7c791.png">
 <meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/8e765662928ffbab958f99fc458a6e25.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8(FC-28)-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect1.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8(FC-28)-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect2.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8(FC-28)-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect3.png">
+<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect1.png">
+<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect2.png">
+<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect3.png">
 <meta property="article:published_time" content="2024-09-13T11:28:43.000Z">
-<meta property="article:modified_time" content="2024-09-22T07:02:39.880Z">
+<meta property="article:modified_time" content="2024-09-22T07:21:02.631Z">
 <meta property="article:author" content="YdaMooc">
 <meta property="article:tag" content="嵌入式">
 <meta property="article:tag" content="STM32">
 <meta property="article:tag" content="OLED">
 <meta property="article:tag" content="FC-28">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8(FC-28)-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/tuRangModel.png">
+<meta name="twitter:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/tuRangModel.png">
 
 
 <link rel="canonical" href="https://ydamooc.github.io/posts/f70fc9bd/">
@@ -197,9 +198,6 @@
     </div>
     <ul class="links-of-recent-posts-list">
         <li class="links-of-recent-posts-item">
-          <a href="/posts/ca41cb46/" title="posts&#x2F;ca41cb46&#x2F;">Hello Blog</a>
-        </li>
-        <li class="links-of-recent-posts-item">
           <a href="/posts/87be2d43/" title="posts&#x2F;87be2d43&#x2F;">使用finalshell连接虚拟机（Ubuntu）</a>
         </li>
         <li class="links-of-recent-posts-item">
@@ -215,6 +213,10 @@
   </div>
         </div>
       </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
     </div>
 
     
@@ -271,7 +273,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-22 15:02:39" itemprop="dateModified" datetime="2024-09-22T15:02:39+08:00">2024-09-22</time>
+      <time title="修改时间：2024-09-22 15:21:02" itemprop="dateModified" datetime="2024-09-22T15:21:02+08:00">2024-09-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -323,28 +325,28 @@
 <h2 id="（二）硬件准备"><a href="#（二）硬件准备" class="headerlink" title="（二）硬件准备"></a>（二）硬件准备</h2><blockquote>
 <p><strong>1. 土壤湿度检测模块</strong></p>
 </blockquote>
-<p><img src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8(FC-28)-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/tuRangModel.png"></p>
+<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/tuRangModel.png"></p>
 <blockquote>
 <p><strong>2. STM32开发板</strong></p>
 </blockquote>
-<p><img src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8(FC-28)-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/STM32.png"></p>
+<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/STM32.png"></p>
 <blockquote>
 <p><strong>3. 0.96寸OLED屏</strong></p>
 </blockquote>
-<p><img src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8(FC-28)-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/OLED.png"></p>
+<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/OLED.png"></p>
 <blockquote>
 <p><strong>4. ST-Link V2（USB口）仿真器</strong></p>
 </blockquote>
-<p><img src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8(FC-28)-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/ST-LinkV2.png"></p>
+<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/ST-LinkV2.png"></p>
 <blockquote>
 <p><strong>5. 适量杜邦线</strong></p>
 </blockquote>
 <p>大约13根</p>
 <hr>
-<h1 id="二、接线图表"><a href="#二、接线图表" class="headerlink" title="二、接线图表"></a>二、接线图表</h1><h2 id="（一）接线图"><a href="#（一）接线图" class="headerlink" title="（一）接线图"></a>（一）接线图</h2><p><img src="https://i-blog.csdnimg.cn/blog_migrate/22bef194c517c653a2bbe68d6fb51f03.png"></p>
-<p><img src="https://i-blog.csdnimg.cn/blog_migrate/fb33d3949ded297fb095c37579d8fc17.png"></p>
-<p><img src="https://i-blog.csdnimg.cn/blog_migrate/020b3ec2f0bb890d639edf62ebc7c791.png"></p>
-<p><img src="https://i-blog.csdnimg.cn/blog_migrate/8e765662928ffbab958f99fc458a6e25.png"></p>
+<h1 id="二、接线图表"><a href="#二、接线图表" class="headerlink" title="二、接线图表"></a>二、接线图表</h1><h2 id="（一）接线图"><a href="#（一）接线图" class="headerlink" title="（一）接线图"></a>（一）接线图</h2><p><img data-src="https://i-blog.csdnimg.cn/blog_migrate/22bef194c517c653a2bbe68d6fb51f03.png"></p>
+<p><img data-src="https://i-blog.csdnimg.cn/blog_migrate/fb33d3949ded297fb095c37579d8fc17.png"></p>
+<p><img data-src="https://i-blog.csdnimg.cn/blog_migrate/020b3ec2f0bb890d639edf62ebc7c791.png"></p>
+<p><img data-src="https://i-blog.csdnimg.cn/blog_migrate/8e765662928ffbab958f99fc458a6e25.png"></p>
 <h2 id="（二）接线示意表"><a href="#（二）接线示意表" class="headerlink" title="（二）接线示意表"></a>（二）接线示意表</h2><table>
 <thead>
 <tr>
@@ -422,7 +424,7 @@
 </tr>
 </tbody></table>
 <hr>
-<h1 id="三、土壤湿度传感器（FC-28、四线制）"><a href="#三、土壤湿度传感器（FC-28、四线制）" class="headerlink" title="三、土壤湿度传感器（FC-28、四线制）"></a>三、土壤湿度传感器（FC-28、四线制）</h1><h2 id="（一）原理"><a href="#（一）原理" class="headerlink" title="（一）原理"></a>（一）原理</h2><h3 id="模块说明（本次实验采用AO口进行模数转换）："><a href="#模块说明（本次实验采用AO口进行模数转换）：" class="headerlink" title="模块说明（本次实验采用AO口进行模数转换）："></a>模块说明（本次实验采用AO口进行模数转换）：</h3><p><img src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8(FC-28)-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect1.png"></p>
+<h1 id="三、土壤湿度传感器（FC-28、四线制）"><a href="#三、土壤湿度传感器（FC-28、四线制）" class="headerlink" title="三、土壤湿度传感器（FC-28、四线制）"></a>三、土壤湿度传感器（FC-28、四线制）</h1><h2 id="（一）原理"><a href="#（一）原理" class="headerlink" title="（一）原理"></a>（一）原理</h2><h3 id="模块说明（本次实验采用AO口进行模数转换）："><a href="#模块说明（本次实验采用AO口进行模数转换）：" class="headerlink" title="模块说明（本次实验采用AO口进行模数转换）："></a>模块说明（本次实验采用AO口进行模数转换）：</h3><p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect1.png"></p>
 <blockquote>
 <ol>
 <li>模块中蓝色的电位器是用于土壤湿度的阀值调节，顺时针调节，控制的湿度会越大，逆时针越小</li>
@@ -430,11 +432,11 @@
 <li>小板模拟量输出 AO 可以和 AD 模块相连，通过 AD 转换，可以获得土壤湿度更精确的数值</li>
 </ol>
 </blockquote>
-<h3 id="土壤湿度传感器模块电路图（本次实验用的模块为四线制）："><a href="#土壤湿度传感器模块电路图（本次实验用的模块为四线制）：" class="headerlink" title="土壤湿度传感器模块电路图（本次实验用的模块为四线制）："></a>土壤湿度传感器模块电路图（本次实验用的模块为四线制）：</h3><p><img src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8(FC-28)-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect2.png"></p>
+<h3 id="土壤湿度传感器模块电路图（本次实验用的模块为四线制）："><a href="#土壤湿度传感器模块电路图（本次实验用的模块为四线制）：" class="headerlink" title="土壤湿度传感器模块电路图（本次实验用的模块为四线制）："></a>土壤湿度传感器模块电路图（本次实验用的模块为四线制）：</h3><p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect2.png"></p>
 <h3 id="stm32ADC通道详细"><a href="#stm32ADC通道详细" class="headerlink" title="stm32ADC通道详细"></a>stm32ADC通道详细</h3><blockquote>
 <p>本次实验使用了PB0引脚模拟AO引脚，使用了通道8（ADC_Channel_8）</p>
 </blockquote>
-<p><img src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8(FC-28)-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect3.png"></p>
+<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect3.png"></p>
 <h3 id="stm32常见转换模式"><a href="#stm32常见转换模式" class="headerlink" title="stm32常见转换模式"></a>stm32常见转换模式</h3><p>​    本次实验采用的是<strong>连续转换非扫描模式</strong></p>
 <blockquote>
 <p><strong>1. 连续转换模式（Continuous Conversion Mode）：</strong><br>     在连续转换模式下，ADC会持续地进行转换，即使没有新的转换请求也会保持转换状态。 这种模式适用于需要连续监测模拟信号变化的应用场景，例如实时数据采集、实时监测等。<br> <strong>2. 非连续转换模式（Single Conversion Mode）</strong>：<br>     在非连续转换模式下，ADC只在接收到转换请求时才进行一次转换，转换完成后会停止转换，直到下一次请求到来。 这种模式适用于需要间歇性地进行模拟信号采集或者低功耗应用场景。<br> <strong>3. 扫描模式（Scan Mode）</strong>：<br>     在扫描模式下，ADC会按照预定义的顺序依次转换多个通道的信号，直到转换完所有通道。这种模式适用于需要连续采集多个模拟信号的应用场景。<br> <strong>4. 非扫描模式：</strong><br>     非扫描模式下，ADC只对单个通道进行转换，不会切换到其他通道进行转换。这种模式适用于仅需采集单一模拟信号的应用场景，可以提高采样速率和效率。</p>
@@ -449,7 +451,7 @@
 </blockquote>
 <h4 id="代码（已添加注释）"><a href="#代码（已添加注释）" class="headerlink" title="代码（已添加注释）"></a>代码（已添加注释）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">void AD_Init(void)</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);		// 开启ADC1时钟</span><br><span class="line">    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);		// 开启GPIOB时钟</span><br><span class="line">    </span><br><span class="line">    // GPIO初始化结构体</span><br><span class="line">    GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;				// 配置为模拟输入模式</span><br><span class="line">    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;					// 指定引脚为GPIO_Pin_0</span><br><span class="line">    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;			// 设置IO口速度为50MHz</span><br><span class="line">    GPIO_Init(GPIOB, &amp;GPIO_InitStructure);						// 初始化GPIOB</span><br><span class="line">    </span><br><span class="line">    RCC_ADCCLKConfig(RCC_PCLK2_Div6);												// 设置ADC时钟分频为PCLK2/6</span><br><span class="line">    ADC_RegularChannelConfig(ADC1, ADC_Channel_8, 1, ADC_SampleTime_239Cycles5);	// ADC通道配置</span><br><span class="line">	</span><br><span class="line">    // ADC初始化结构体</span><br><span class="line">    ADC_InitTypeDef ADC_InitStructure;</span><br><span class="line">    ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;	// 设置转换触发模式为不使用外部触发</span><br><span class="line">    ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;				// 设置数据对齐方式为右对齐</span><br><span class="line">    ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;					// 设置工作模式为独立模式</span><br><span class="line">    ADC_InitStructure.ADC_ContinuousConvMode = ENABLE;					// 开启连续转换模式</span><br><span class="line">    ADC_InitStructure.ADC_ScanConvMode = DISABLE;						// 关闭扫描模式</span><br><span class="line">    ADC_InitStructure.ADC_NbrOfChannel = 1;								// 设置转换的通道数目为1</span><br><span class="line">    ADC_Init(ADC1, &amp;ADC_InitStructure);									// 初始化ADC1</span><br><span class="line">	</span><br><span class="line">    </span><br><span class="line">    ADC_Cmd(ADC1, ENABLE);									// 开启ADC电源</span><br><span class="line">    </span><br><span class="line">    ADC_ResetCalibration(ADC1);								// 复位校准</span><br><span class="line">    while (ADC_GetResetCalibrationStatus(ADC1));			// 等待ADC复位校准完成</span><br><span class="line">    </span><br><span class="line">    ADC_StartCalibration(ADC1);								// 开始校准</span><br><span class="line">    while (ADC_GetCalibrationStatus(ADC1));					// 等待ADC校准完成</span><br><span class="line">	</span><br><span class="line">    ADC_SoftwareStartConvCmd(ADC1, ENABLE);					// 启动软件转换</span><br><span class="line">    while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET);	// 等待转换完成</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p><img data-src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
 <h3 id="2-uint16-t-AD-GetValue-void-函数"><a href="#2-uint16-t-AD-GetValue-void-函数" class="headerlink" title="2. uint16_t AD_GetValue(void)函数"></a>2. uint16_t AD_GetValue(void)函数</h3><h4 id="函数介绍-1"><a href="#函数介绍-1" class="headerlink" title="函数介绍"></a>函数介绍</h4><blockquote>
 <p>获取ADC值函数，主要用于获取ADC1通道模数转换的结果，方便与后面的函数调用。</p>
 </blockquote>
@@ -543,7 +545,35 @@
     
     
 
+	<div>
+		 <div>
+    
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+        -------------本文结束!感谢您的阅读-------------
+    </div>
+    
+</div> 
+	</div>
+
     <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="YdaMooc 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="YdaMooc 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
           
 
 <div class="post-copyright">
@@ -562,10 +592,10 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag"># 嵌入式</a>
-              <a href="/tags/STM32/" rel="tag"># STM32</a>
-              <a href="/tags/OLED/" rel="tag"># OLED</a>
-              <a href="/tags/FC-28/" rel="tag"># FC-28</a>
+              <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i> 嵌入式</a>
+              <a href="/tags/STM32/" rel="tag"><i class="fa fa-tag"></i> STM32</a>
+              <a href="/tags/OLED/" rel="tag"><i class="fa fa-tag"></i> OLED</a>
+              <a href="/tags/FC-28/" rel="tag"><i class="fa fa-tag"></i> FC-28</a>
           </div>
 
         
@@ -652,10 +682,7 @@
     <span class="toggle-line"></span>
   </div>
   <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
+  <div class="reading-progress-bar"></div>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -664,8 +691,10 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
@@ -680,7 +709,7 @@
 
 
   
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
