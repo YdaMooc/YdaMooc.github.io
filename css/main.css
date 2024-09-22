@@ -1420,7 +1420,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #50ffdd;
+    background: #7a83ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3136,17 +3136,17 @@ header.header {
   padding: 0;
 }
 .content-wrap {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 .main-inner .post-block {
-  background: rgba(255,255,255,0.7) none repeat scroll !important;
+  background: rgba(255,255,255,0.8) none repeat scroll !important;
 }
 .sidebar .sidebar-inner {
-  background: rgba(255,255,255,0.7) none repeat scroll !important;
+  background: rgba(255,255,255,0.8) none repeat scroll !important;
 }
 .header-inner {
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.8);
 }
 .popup {
-  opacity: 0.7;
+  opacity: 0.95;
 }
