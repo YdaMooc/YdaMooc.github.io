@@ -2,11 +2,11 @@
 <search>
   <entry>
     <title>ESP32驱动TFT显示屏（配置+自定义字库）</title>
-    <url>/2024/09/15/ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/</url>
+    <url>/posts/263a8102/</url>
     <content><![CDATA[<h1 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h1><h2 id="（一）硬件设备"><a href="#（一）硬件设备" class="headerlink" title="（一）硬件设备"></a>（一）硬件设备</h2><ol>
-<li><p>ESP32开发板（本文所使用的是嘉立创的ESP32S3R8N8）<br><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/esp32.png"></p>
+<li><p>ESP32开发板（本文所使用的是嘉立创的ESP32S3R8N8）<br><img src="/posts/263a8102/esp32.png"></p>
 </li>
-<li><p>1.8寸TFT显示屏(型号：ST7735S)<br><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/tft.png"></p>
+<li><p>1.8寸TFT显示屏(型号：ST7735S)<br><img src="/posts/263a8102/tft.png"></p>
 </li>
 </ol>
 <h2 id="（二）软件环境"><a href="#（二）软件环境" class="headerlink" title="（二）软件环境"></a>（二）软件环境</h2><ol>
@@ -23,34 +23,34 @@
 <ul>
 <li>ESP32开发板包的版本不能高于2.0.14，否则烧录后，显示屏无法正常工作（白屏）</li>
 </ul>
-<h1 id="二、硬件连接"><a href="#二、硬件连接" class="headerlink" title="二、硬件连接"></a>二、硬件连接</h1><p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/connect.png"></p>
+<h1 id="二、硬件连接"><a href="#二、硬件连接" class="headerlink" title="二、硬件连接"></a>二、硬件连接</h1><p><img src="/posts/263a8102/connect.png"></p>
 <h1 id="三、软件设置"><a href="#三、软件设置" class="headerlink" title="三、软件设置"></a>三、软件设置</h1><ol>
 <li>在Arduino IDE中安装ESP32开发板包和TFT_eSPI库后，打开Arduino的项目文件夹目录（可在IDE的文件-&gt;首选项中查看），然后打开libraries&#x2F;TFT_eSPI&#x2F;User_Setup.h</li>
 </ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image1.png"></p>
+<p><img src="/posts/263a8102/image1.png"></p>
 <ol start="2">
 <li>定义驱动，打开User_Setup.h后，找到 “&#x2F;&#x2F; Only define one driver, the other ones must be commented out” 这一行，将原来的define注释掉，并且取消注释 #define ST7735_DRIVER</li>
 </ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image2.png"></p>
+<p><img src="/posts/263a8102/image2.png"></p>
 <ol start="3">
 <li>定义颜色顺序，找到 #define TFT_RGB_ORDER TFT_RGB 取消掉注释（在76行）</li>
 </ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image3.png"></p>
+<p><img src="/posts/263a8102/image3.png"></p>
 <ol start="4">
 <li>设置显示屏的长宽像素，我的是1.8寸，也就是128x160，找到下面的83行开始，分别找到 “#define TFT_WIDTH  128” 和 “ #define TFT_HEIGHT 160” 取消注释</li>
 </ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image4.png"></p>
+<p><img src="/posts/263a8102/image4.png"></p>
 <ol start="5">
 <li>引脚定义，找到170行开始，将默认的引脚定义注释掉，然后找到223行取消掉注释，并且将引脚号修改成我们前面设置的引脚号</li>
 </ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image5.png"></p>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image6.png"></p>
+<p><img src="/posts/263a8102/image5.png"></p>
+<p><img src="/posts/263a8102/image6.png"></p>
 <ol start="6">
 <li>测试例程，打开IDE，点左上角的文件-&gt;示例-&gt;TFT eSPI-&gt;160*128-&gt;TFT Clock 例程，设置好串口和板子之后，点击上传，能够正常显示，就说明配置成功了。</li>
 </ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image7.png"></p>
+<p><img src="/posts/263a8102/image7.png"></p>
 <p>测试成功则如下：</p>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/test.png"></p>
+<p><img src="/posts/263a8102/test.png"></p>
 <ol start="7">
 <li>注意：</li>
 </ol>
@@ -58,12 +58,12 @@
 <li>如果在编译的时候，出现下面这些警告是因为我们没用定义TOUCH_CS引脚，并不会影响我们操作TFT屏，可以忽略。</li>
 <li>如果觉得不舒服，可以在User_Setup.h文件中找到230行，也就是定义引脚的后面，将 #define TOUCH_CS 取消注释，然后设置一个不会影响操作的引脚就可以了。</li>
 </ul>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image8.png"></p>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image9.png"></p>
+<p><img src="/posts/263a8102/image8.png"></p>
+<p><img src="/posts/263a8102/image9.png"></p>
 <h1 id="四、自定义字库显示"><a href="#四、自定义字库显示" class="headerlink" title="四、自定义字库显示"></a>四、自定义字库显示</h1><h2 id="（一）生成Unicode代码"><a href="#（一）生成Unicode代码" class="headerlink" title="（一）生成Unicode代码"></a>（一）生成Unicode代码</h2><p>确定好需要生成的汉字后，打开<a href="https://tool.chinaz.com/tools/unicode.aspx">Unicode编码转换</a>，将需要自定义的文字（符号也可以）粘贴，然后点击 “中文 转 Unicode” 就可以得到转换后的Unicode编码</p>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image10.png"></p>
+<p><img src="/posts/263a8102/image10.png"></p>
 <p>然后将得到的Unicode编码改写成0x开头的数据备用</p>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image11.png"></p>
+<p><img src="/posts/263a8102/image11.png"></p>
 <h2 id="（二）生成字库"><a href="#（二）生成字库" class="headerlink" title="（二）生成字库"></a>（二）生成字库</h2><ol>
 <li>安装好processing后，再次打开TFT_eSPI库的目录，然后打开到Tools\Create_Smooth_Font\Create_font 目录下</li>
 </ol>
@@ -72,41 +72,41 @@
 <li>FontFiles文件夹是用来存放生成的字库的</li>
 <li>Create_font.pde是官方自带的生成字</li>
 </ul>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image12.png"></p>
+<p><img src="/posts/263a8102/image12.png"></p>
 <ol start="2">
 <li>打开 C:\Windows\Fonts 找到自己适合的字体，然后复制粘贴进data文件夹里面，这里我选择的是新宋体（simsun）</li>
 </ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image13.png"></p>
+<p><img src="/posts/263a8102/image13.png"></p>
 <ol start="3">
 <li>打开Create_font.pde，在130行的字体名称改成刚刚放进data文件夹里面的字体名称，然后在132行，根据字体文件的后缀修改成对应的后缀就行了。我所用到的字体名字叫做simsun，后缀是.ttc</li>
 </ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image15.png"></p>
+<p><img src="/posts/263a8102/image15.png"></p>
 <ol start="4">
 <li>在137行设置所生成的字体的大小，这里我选择的是24</li>
 </ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image14.png"></p>
+<p><img src="/posts/263a8102/image14.png"></p>
 <ol start="5">
 <li>在330行找到specificUnicodes数组，将里面的内容清空，然后把前面转换并且改好格式的Unicode编码粘贴进来</li>
 </ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image16.png"></p>
+<p><img src="/posts/263a8102/image16.png"></p>
 <ol start="6">
 <li>然后点击运行，就可以在FontFiles文件夹里面看到生成的字库了（运行后会有一个预览窗口，直接关闭就可以了）</li>
 </ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image17.png"></p>
+<p><img src="/posts/263a8102/image17.png"></p>
 <h2 id="（三）使用字库"><a href="#（三）使用字库" class="headerlink" title="（三）使用字库"></a>（三）使用字库</h2><ol>
 <li>打开Arduino IDE，新建一个项目并且保存，然后打开项目根目录，将前面所生成的.h文件放到根目录里面</li>
 </ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image18.png"></p>
+<p><img src="/posts/263a8102/image18.png"></p>
 <ol start="2">
 <li>进入IDE就会发现多了一个.h文件出来，我们点进去，就可以看到字库的名字了，我这里是 “simsun24”</li>
 </ol>
-<p><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/image19.png"></p>
+<p><img src="/posts/263a8102/image19.png"></p>
 <ol start="3">
 <li>在项目文件里面写入以下代码，然后编译运行就可以了。</li>
 </ol>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;TFT_eSPI.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;SPI.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;simsun24.h&quot;</span>  <span class="comment">// 引入字库</span></span></span><br><span class="line"></span><br><span class="line">TFT_eSPI tft = TFT_eSPI();  <span class="comment">// 创建tft显示对象</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">setup</span><span class="params">()</span> &#123;</span><br><span class="line">  tft.init();                   <span class="comment">// 初始化对象</span></span><br><span class="line">  tft.setRotation(<span class="number">1</span>);           <span class="comment">// 设置为横屏</span></span><br><span class="line">  tft.setTextColor(TFT_WHITE);  <span class="comment">// 设置字体颜色为白色</span></span><br><span class="line">  tft.fillScreen(TFT_BLACK);    <span class="comment">// 设置字体背景颜色为黑色</span></span><br><span class="line">  tft.loadFont(simsun24);       <span class="comment">// 设置所使用的字库为simsun24</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">loop</span><span class="params">()</span> &#123;</span><br><span class="line">  tft.setCursor(<span class="number">0</span>, <span class="number">5</span>);                          <span class="comment">// 设置显示位置</span></span><br><span class="line">  tft.println(<span class="string">&quot;你好，一起学习自定义中文字库&quot;</span>);  <span class="comment">// 在屏幕上打印内容</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>) &#123;&#125;                                  <span class="comment">// 防止屏幕一直刷新</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>最后效果如下：<br><img data-src="/./ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/test2.png"></p>
+<p>最后效果如下：<br><img src="/posts/263a8102/test2.png"></p>
 <h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h1><p>如果要使用TFT_eSPI库驱动别的显示器，得去<a href="https://github.com/Bodmer/TFT_eSPI">官方</a>去查询是否支持所使用的开发板或者显示器，如果支持就可以通过修改User_Setup.h里面的配置文件来使用。更多例程或者介绍请自行查阅<a href="https://github.com/Bodmer/TFT_eSPI">官方资料。</a></p>
 ]]></content>
       <categories>
@@ -121,13 +121,19 @@
       </tags>
   </entry>
   <entry>
+    <title>a</title>
+    <url>/posts/59585/</url>
+    <content><![CDATA[<p><img src="/posts/59585/connect2.png"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>使用finalshell连接虚拟机（Ubuntu）</title>
-    <url>/2024/09/19/%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/</url>
+    <url>/posts/87be2d43/</url>
     <content><![CDATA[<h1 id="一、下载finalshell"><a href="#一、下载finalshell" class="headerlink" title="一、下载finalshell"></a>一、下载finalshell</h1><p><a href="https://www.hostbuf.com/">FinalShell官网</a></p>
 <blockquote>
 <p>进入官网，选择自己需要的版本下载即可。</p>
 </blockquote>
-<p><img data-src="/./%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/image1.png"></p>
+<p><img src="/posts/87be2d43/image1.png"></p>
 <hr>
 <h1 id="二、指令输入"><a href="#二、指令输入" class="headerlink" title="二、指令输入"></a>二、指令输入</h1><h2 id="指令1"><a href="#指令1" class="headerlink" title="指令1"></a>指令1</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
 
@@ -136,7 +142,7 @@
 <p>   这条指令是，更新系统中所有可用软件包的最新版本信息，但不会实际安装或升级软件包。这个命令通常是在安装新软件或升级现有软件之前运行的，以确保获取的是最新的软件包列表。</p>
 </blockquote>
 <p><strong>运行结果：</strong></p>
-<p><img data-src="/./%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/image2.png"></p>
+<p><img src="/posts/87be2d43/image2.png"></p>
 <h2 id="指令2"><a href="#指令2" class="headerlink" title="指令2"></a>指令2</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install openssh-server -y</span><br></pre></td></tr></table></figure>
 
 <p><strong>指令解释：</strong></p>
@@ -144,7 +150,7 @@
 <p>   安装一个能够接受SSH连接的服务器。-y表示在安装过程种自动回答“yes”.</p>
 </blockquote>
 <p><strong>运行结果：</strong></p>
-<p><img data-src="/./%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/image3.png"></p>
+<p><img src="/posts/87be2d43/image3.png"></p>
 <h2 id="指令3"><a href="#指令3" class="headerlink" title="指令3"></a>指令3</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl start ssh</span><br></pre></td></tr></table></figure>
 
 <p><strong>指令解释：</strong></p>
@@ -152,14 +158,14 @@
 <p>   运行SSH服务器是否正在运行。</p>
 </blockquote>
 <p><strong>运行结果：</strong></p>
-<p><img data-src="/./%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/image4.png"></p>
+<p><img src="/posts/87be2d43/image4.png"></p>
 <h2 id="指令4"><a href="#指令4" class="headerlink" title="指令4"></a>指令4</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl status ssh</span><br></pre></td></tr></table></figure>
 
 <p><strong>指令解释：</strong></p>
 <blockquote>
 <p>   确定SSH服务器是否正在运行。active (running)表示服务器正在运行。</p>
 </blockquote>
-<p><strong>运行结果：</strong><br> <br><img data-src="/./%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/image5.png"></p>
+<p><strong>运行结果：</strong><br> <br><img src="/posts/87be2d43/image5.png"></p>
 <h2 id="指令5"><a href="#指令5" class="headerlink" title="指令5"></a>指令5</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ufw allow ssh</span><br></pre></td></tr></table></figure>
 
 <p><strong>指令解释：</strong></p>
@@ -167,7 +173,7 @@
 <p>   允许 SSH 流量通过防火墙。这非常重要，因为防火墙默认情况下会阻止所有传入的连接。通过运行这个命令，就能确保允许来自外部网络的 SSH 连接到系统里。</p>
 </blockquote>
 <p><strong>运行结果：</strong></p>
-<p><img data-src="/./%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/image6.png"></p>
+<p><img src="/posts/87be2d43/image6.png"></p>
 <h2 id="指令6"><a href="#指令6" class="headerlink" title="指令6"></a>指令6</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ufw allow 22</span><br></pre></td></tr></table></figure>
 
 <p><strong>指令解释：</strong></p>
@@ -175,7 +181,7 @@
 <p>   允许通过 22 端口的流量，因为 SSH 默认使用 22 端口。通过运行这个命令，能确保允许来自外部网络的 SSH 连接到系统里。</p>
 </blockquote>
 <p><strong>运行结果：</strong></p>
-<p><img data-src="/./%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/image7.png"></p>
+<p><img src="/posts/87be2d43/image7.png"></p>
 <h2 id="指令7"><a href="#指令7" class="headerlink" title="指令7"></a>指令7</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
 
 <p><strong>指令解释：</strong></p>
@@ -183,7 +189,7 @@
 <p>   显示当前防火墙的状态。其中可以看到22端口和ssh被防火墙允许通过。</p>
 </blockquote>
 <p><strong>运行结果：</strong></p>
-<p><img data-src="/./%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/iamge8.png"></p>
+<p><img src="/posts/87be2d43/iamge8.png"></p>
 <h2 id="指令8"><a href="#指令8" class="headerlink" title="指令8"></a>指令8</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install net-tools -y</span><br></pre></td></tr></table></figure>
 
 <p><strong>指令解释：</strong></p>
@@ -191,7 +197,7 @@
 <p>   自动安装 net-tools 软件包，并且不会在安装过程中询问您是否确认。安装完成后，就可以使用 ifconfig 和其他工具来管理和查看网络连接信息。</p>
 </blockquote>
 <p><strong>运行结果：</strong></p>
-<p><img data-src="/./%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/image9.png"></p>
+<p><img src="/posts/87be2d43/image9.png"></p>
 <h2 id="指令9"><a href="#指令9" class="headerlink" title="指令9"></a>指令9</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
 
 <p><strong>指令解释：</strong></p>
@@ -199,29 +205,29 @@
 <p>   查看虚拟机IP地址</p>
 </blockquote>
 <p><strong>运行结果：</strong></p>
-<p><img data-src="/./%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/iamge10.png"></p>
+<p><img src="/posts/87be2d43/iamge10.png"></p>
 <hr>
 <h1 id="三、使用finalshell连接虚拟机"><a href="#三、使用finalshell连接虚拟机" class="headerlink" title="三、使用finalshell连接虚拟机"></a>三、使用finalshell连接虚拟机</h1><blockquote>
 <p>   打开finalshell后，点击左上角，查看连接管理器，然后添加连接，选择SSH连接（Linux）</p>
 </blockquote>
-<p><img data-src="/./%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/image11.png"></p>
+<p><img src="/posts/87be2d43/image11.png"></p>
 <blockquote>
 <p>   依次输入名称、IP地址和用户名密码等相关信息。输入完后直接按确定即可。</p>
 </blockquote>
-<p><img data-src="/./%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/iamge12.png"></p>
+<p><img src="/posts/87be2d43/iamge12.png"></p>
 <blockquote>
 <p>   回到连接管理器中，双击刚刚所添加的连接。</p>
 </blockquote>
-<p><img data-src="/./%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/image13.png"></p>
+<p><img src="/posts/87be2d43/image13.png"></p>
 <blockquote>
 <p>   出现弹窗口，点击 “接受并保存”，出现连接主机成功的字样就代表我们成功使用finalshell连接上虚拟机了。</p>
 </blockquote>
-<p><img data-src="/./%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/image14.png"></p>
-<p><img data-src="/./%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/image15.png"></p>
+<p><img src="/posts/87be2d43/image14.png"></p>
+<p><img src="/posts/87be2d43/image15.png"></p>
 <blockquote>
 <p>   补充：finalshell带有文件管理系统，可以不用进入虚拟机更加方便地进行一些操作 。如下图：</p>
 </blockquote>
-<p><img data-src="/./%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/image16.png"><br>​</p>
+<p><img src="/posts/87be2d43/image16.png"><br>​</p>
 ]]></content>
       <categories>
         <category>Ubuntu</category>
@@ -234,33 +240,33 @@
   </entry>
   <entry>
     <title>基于STM32的土壤湿度传感器（FC-28）-OLED屏显示-超详细</title>
-    <url>/2024/09/13/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/</url>
+    <url>/posts/f70fc9bd/</url>
     <content><![CDATA[<h1 id="一、前期准备"><a href="#一、前期准备" class="headerlink" title="一、前期准备"></a>一、前期准备</h1><h2 id="（一）软件环境准备"><a href="#（一）软件环境准备" class="headerlink" title="（一）软件环境准备"></a>（一）软件环境准备</h2><p>编译工具为Keil5，对应芯片为：STM32F103C8T6</p>
 <h2 id="（二）硬件准备"><a href="#（二）硬件准备" class="headerlink" title="（二）硬件准备"></a>（二）硬件准备</h2><blockquote>
 <p><strong>1. 土壤湿度检测模块</strong></p>
 </blockquote>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/tuRangModel.png"></p>
+<p><img src="/posts/f70fc9bd/tuRangModel.png"></p>
 <blockquote>
 <p><strong>2. STM32开发板</strong></p>
 </blockquote>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/STM32.png"></p>
+<p><img src="/posts/f70fc9bd/STM32.png"></p>
 <blockquote>
 <p><strong>3. 0.96寸OLED屏</strong></p>
 </blockquote>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/OLED.png"></p>
+<p><img src="/posts/f70fc9bd/OLED.png"></p>
 <blockquote>
 <p><strong>4. ST-Link V2（USB口）仿真器</strong></p>
 </blockquote>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/ST-LinkV2.png"></p>
+<p><img src="/posts/f70fc9bd/ST-LinkV2.png"></p>
 <blockquote>
 <p><strong>5. 适量杜邦线</strong></p>
 </blockquote>
 <p>大约13根</p>
 <hr>
-<h1 id="二、接线图表"><a href="#二、接线图表" class="headerlink" title="二、接线图表"></a>二、接线图表</h1><h2 id="（一）接线图"><a href="#（一）接线图" class="headerlink" title="（一）接线图"></a>（一）接线图</h2><p><img data-src="https://i-blog.csdnimg.cn/blog_migrate/22bef194c517c653a2bbe68d6fb51f03.png"></p>
-<p><img data-src="https://i-blog.csdnimg.cn/blog_migrate/fb33d3949ded297fb095c37579d8fc17.png"></p>
-<p><img data-src="https://i-blog.csdnimg.cn/blog_migrate/020b3ec2f0bb890d639edf62ebc7c791.png"></p>
-<p><img data-src="https://i-blog.csdnimg.cn/blog_migrate/8e765662928ffbab958f99fc458a6e25.png"></p>
+<h1 id="二、接线图表"><a href="#二、接线图表" class="headerlink" title="二、接线图表"></a>二、接线图表</h1><h2 id="（一）接线图"><a href="#（一）接线图" class="headerlink" title="（一）接线图"></a>（一）接线图</h2><p><img src="https://i-blog.csdnimg.cn/blog_migrate/22bef194c517c653a2bbe68d6fb51f03.png"></p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/fb33d3949ded297fb095c37579d8fc17.png"></p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/020b3ec2f0bb890d639edf62ebc7c791.png"></p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/8e765662928ffbab958f99fc458a6e25.png"></p>
 <h2 id="（二）接线示意表"><a href="#（二）接线示意表" class="headerlink" title="（二）接线示意表"></a>（二）接线示意表</h2><table>
 <thead>
 <tr>
@@ -338,7 +344,7 @@
 </tr>
 </tbody></table>
 <hr>
-<h1 id="三、土壤湿度传感器（FC-28、四线制）"><a href="#三、土壤湿度传感器（FC-28、四线制）" class="headerlink" title="三、土壤湿度传感器（FC-28、四线制）"></a>三、土壤湿度传感器（FC-28、四线制）</h1><h2 id="（一）原理"><a href="#（一）原理" class="headerlink" title="（一）原理"></a>（一）原理</h2><h3 id="模块说明（本次实验采用AO口进行模数转换）："><a href="#模块说明（本次实验采用AO口进行模数转换）：" class="headerlink" title="模块说明（本次实验采用AO口进行模数转换）："></a>模块说明（本次实验采用AO口进行模数转换）：</h3><p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect1.png"></p>
+<h1 id="三、土壤湿度传感器（FC-28、四线制）"><a href="#三、土壤湿度传感器（FC-28、四线制）" class="headerlink" title="三、土壤湿度传感器（FC-28、四线制）"></a>三、土壤湿度传感器（FC-28、四线制）</h1><h2 id="（一）原理"><a href="#（一）原理" class="headerlink" title="（一）原理"></a>（一）原理</h2><h3 id="模块说明（本次实验采用AO口进行模数转换）："><a href="#模块说明（本次实验采用AO口进行模数转换）：" class="headerlink" title="模块说明（本次实验采用AO口进行模数转换）："></a>模块说明（本次实验采用AO口进行模数转换）：</h3><p><img src="/posts/f70fc9bd/connect1.png"></p>
 <blockquote>
 <ol>
 <li>模块中蓝色的电位器是用于土壤湿度的阀值调节，顺时针调节，控制的湿度会越大，逆时针越小</li>
@@ -346,11 +352,11 @@
 <li>小板模拟量输出 AO 可以和 AD 模块相连，通过 AD 转换，可以获得土壤湿度更精确的数值</li>
 </ol>
 </blockquote>
-<h3 id="土壤湿度传感器模块电路图（本次实验用的模块为四线制）："><a href="#土壤湿度传感器模块电路图（本次实验用的模块为四线制）：" class="headerlink" title="土壤湿度传感器模块电路图（本次实验用的模块为四线制）："></a>土壤湿度传感器模块电路图（本次实验用的模块为四线制）：</h3><p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect2.png"></p>
+<h3 id="土壤湿度传感器模块电路图（本次实验用的模块为四线制）："><a href="#土壤湿度传感器模块电路图（本次实验用的模块为四线制）：" class="headerlink" title="土壤湿度传感器模块电路图（本次实验用的模块为四线制）："></a>土壤湿度传感器模块电路图（本次实验用的模块为四线制）：</h3><p><img src="/posts/f70fc9bd/connect2.png"></p>
 <h3 id="stm32ADC通道详细"><a href="#stm32ADC通道详细" class="headerlink" title="stm32ADC通道详细"></a>stm32ADC通道详细</h3><blockquote>
 <p>本次实验使用了PB0引脚模拟AO引脚，使用了通道8（ADC_Channel_8）</p>
 </blockquote>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect3.png"></p>
+<p><img src="/posts/f70fc9bd/connect3.png"></p>
 <h3 id="stm32常见转换模式"><a href="#stm32常见转换模式" class="headerlink" title="stm32常见转换模式"></a>stm32常见转换模式</h3><p>​    本次实验采用的是<strong>连续转换非扫描模式</strong></p>
 <blockquote>
 <p><strong>1. 连续转换模式（Continuous Conversion Mode）：</strong><br>     在连续转换模式下，ADC会持续地进行转换，即使没有新的转换请求也会保持转换状态。 这种模式适用于需要连续监测模拟信号变化的应用场景，例如实时数据采集、实时监测等。<br> <strong>2. 非连续转换模式（Single Conversion Mode）</strong>：<br>     在非连续转换模式下，ADC只在接收到转换请求时才进行一次转换，转换完成后会停止转换，直到下一次请求到来。 这种模式适用于需要间歇性地进行模拟信号采集或者低功耗应用场景。<br> <strong>3. 扫描模式（Scan Mode）</strong>：<br>     在扫描模式下，ADC会按照预定义的顺序依次转换多个通道的信号，直到转换完所有通道。这种模式适用于需要连续采集多个模拟信号的应用场景。<br> <strong>4. 非扫描模式：</strong><br>     非扫描模式下，ADC只对单个通道进行转换，不会切换到其他通道进行转换。这种模式适用于仅需采集单一模拟信号的应用场景，可以提高采样速率和效率。</p>
@@ -365,7 +371,7 @@
 </blockquote>
 <h4 id="代码（已添加注释）"><a href="#代码（已添加注释）" class="headerlink" title="代码（已添加注释）"></a>代码（已添加注释）</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void AD_Init(void)</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);		// 开启ADC1时钟</span><br><span class="line">    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);		// 开启GPIOB时钟</span><br><span class="line">    </span><br><span class="line">    // GPIO初始化结构体</span><br><span class="line">    GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;				// 配置为模拟输入模式</span><br><span class="line">    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;					// 指定引脚为GPIO_Pin_0</span><br><span class="line">    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;			// 设置IO口速度为50MHz</span><br><span class="line">    GPIO_Init(GPIOB, &amp;GPIO_InitStructure);						// 初始化GPIOB</span><br><span class="line">    </span><br><span class="line">    RCC_ADCCLKConfig(RCC_PCLK2_Div6);												// 设置ADC时钟分频为PCLK2/6</span><br><span class="line">    ADC_RegularChannelConfig(ADC1, ADC_Channel_8, 1, ADC_SampleTime_239Cycles5);	// ADC通道配置</span><br><span class="line">	</span><br><span class="line">    // ADC初始化结构体</span><br><span class="line">    ADC_InitTypeDef ADC_InitStructure;</span><br><span class="line">    ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;	// 设置转换触发模式为不使用外部触发</span><br><span class="line">    ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;				// 设置数据对齐方式为右对齐</span><br><span class="line">    ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;					// 设置工作模式为独立模式</span><br><span class="line">    ADC_InitStructure.ADC_ContinuousConvMode = ENABLE;					// 开启连续转换模式</span><br><span class="line">    ADC_InitStructure.ADC_ScanConvMode = DISABLE;						// 关闭扫描模式</span><br><span class="line">    ADC_InitStructure.ADC_NbrOfChannel = 1;								// 设置转换的通道数目为1</span><br><span class="line">    ADC_Init(ADC1, &amp;ADC_InitStructure);									// 初始化ADC1</span><br><span class="line">	</span><br><span class="line">    </span><br><span class="line">    ADC_Cmd(ADC1, ENABLE);									// 开启ADC电源</span><br><span class="line">    </span><br><span class="line">    ADC_ResetCalibration(ADC1);								// 复位校准</span><br><span class="line">    while (ADC_GetResetCalibrationStatus(ADC1));			// 等待ADC复位校准完成</span><br><span class="line">    </span><br><span class="line">    ADC_StartCalibration(ADC1);								// 开始校准</span><br><span class="line">    while (ADC_GetCalibrationStatus(ADC1));					// 等待ADC校准完成</span><br><span class="line">	</span><br><span class="line">    ADC_SoftwareStartConvCmd(ADC1, ENABLE);					// 启动软件转换</span><br><span class="line">    while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET);	// 等待转换完成</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img data-src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
 <h3 id="2-uint16-t-AD-GetValue-void-函数"><a href="#2-uint16-t-AD-GetValue-void-函数" class="headerlink" title="2. uint16_t AD_GetValue(void)函数"></a>2. uint16_t AD_GetValue(void)函数</h3><h4 id="函数介绍-1"><a href="#函数介绍-1" class="headerlink" title="函数介绍"></a>函数介绍</h4><blockquote>
 <p>获取ADC值函数，主要用于获取ADC1通道模数转换的结果，方便与后面的函数调用。</p>
 </blockquote>
@@ -466,32 +472,32 @@
   </entry>
   <entry>
     <title>基于STM32的温湿度传感器（DHT11）-OLED屏显示-超详细</title>
-    <url>/2024/09/13/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/</url>
+    <url>/posts/74b74ff/</url>
     <content><![CDATA[<h1 id="一、前期准备"><a href="#一、前期准备" class="headerlink" title="一、前期准备"></a>一、前期准备</h1><h2 id="（一）软件环境准备"><a href="#（一）软件环境准备" class="headerlink" title="（一）软件环境准备"></a>（一）软件环境准备</h2><p>编译工具为Keil5，对应芯片为：STM32F103C8T6</p>
 <h2 id="（二）硬件准备"><a href="#（二）硬件准备" class="headerlink" title="（二）硬件准备"></a>（二）硬件准备</h2><ol>
 <li>STM32模块</li>
 </ol>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/stm32.png"></p>
+<p><img src="/posts/74b74ff/stm32.png"></p>
 <ol>
 <li>OLED显示屏</li>
 </ol>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/oled.png"></p>
+<p><img src="/posts/74b74ff/oled.png"></p>
 <ol>
 <li>温湿度传感器（DHT11）</li>
 </ol>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/DHT11.png"></p>
+<p><img src="/posts/74b74ff/DHT11.png"></p>
 <ol start="4">
 <li>ST-Link V2（USB口）仿真器</li>
 </ol>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/ST-LinkV2.png"></p>
+<p><img src="/posts/74b74ff/ST-LinkV2.png"></p>
 <ol start="5">
 <li>适量杜邦线</li>
 </ol>
 <p>大约11根母对母杜邦线</p>
 <hr>
-<h1 id="二、接线图表"><a href="#二、接线图表" class="headerlink" title="二、接线图表"></a>二、接线图表</h1><p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect1.png"></p>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect2.png"></p>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect3.png"></p>
+<h1 id="二、接线图表"><a href="#二、接线图表" class="headerlink" title="二、接线图表"></a>二、接线图表</h1><p><img src="/posts/74b74ff/connect1.png"></p>
+<p><img src="/posts/74b74ff/connect2.png"></p>
+<p><img src="/posts/74b74ff/connect3.png"></p>
 <table>
 <thead>
 <tr>
@@ -573,7 +579,7 @@
 <p>​    DHT11工作原理是基于内部的湿度传感器和温度传感器，通过检测这两个传感器的信号变化，将湿度和温度转换为数字信号输出。它采用简单的串行通信协议（<strong>后面补充</strong>）与外部设备通信，发送包含温湿度数据的数据帧，用户则获取数据帧进行相关的处理使用。</p>
 </blockquote>
 <p>   经典应用电路图如图1所示</p>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/image1.png"></p>
+<p><img src="/posts/74b74ff/image1.png"></p>
 <p> 图1</p>
 <blockquote>
 <p>​    DATA 用于微处理器与 DHT11之间的通讯和同步,采用单总线数据格式,一次通讯时间4ms左右,数据分小数部分和整数部分,具体格式在下面说明,当前小数部分用于以后扩展,现读出为零.操作流程如下: </p>
@@ -585,21 +591,21 @@
 <p>​    数据等于“<strong>8bit湿度整数数据+8bit湿度小数数据</strong><strong>+8bi温度整数数据+8bit温度小数数据”</strong>所得结果的末8位。用户MCU发送一次开始信号后，DHT11从低功耗模式转换到高速模式，等待主机开始信号结束后，DHT11发送响应信号,送出40bit的数据,并触发一次信号采集，用户可选择读取部分数据。从模式下，DHT11接收到开始信号触发一次温湿度采集，如果没有接收到主机发送开始信号，DHT11不会主动进行温湿度采集。采集数据后转换到低速模式。</p>
 </blockquote>
 <p>   通讯过程如图2所示</p>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/image2.png"></p>
+<p><img src="/posts/74b74ff/image2.png"></p>
 <p>图2 </p>
 <blockquote>
 <p>​    总线空闲状态为高电平，主机把总线拉低等待DHT11响应，主机把总线拉低必须大于18毫秒，保证DHT11能检测到起始信号。DHT11接收到主机的开始信号后，等待主机开始信号结束，然后发送80us低电平响应信号。主机发送开始信号结束后，延时等待20-40us后，读取DHT11的响应信号，主机发送开始信号后，可以切换到输入模式，或者输出高电平均可，总线由上拉电阻拉高。</p>
 </blockquote>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/image3.png"></p>
+<p><img src="/posts/74b74ff/image3.png"></p>
 <p>图3 </p>
 <blockquote>
 <p>​    总线为低电平，说明DHT11发送响应信号，DHT11发送响应信号后，再把总线拉高80us，准备发送数据，每一bit数据都以50us低电平时隙开始，高电平的长短定了数据位是0还是1。格式见下面图示。如果读取响应信号为高电平，则DHT11没有响应，请检查线路是否连接正常。当最后一bit数据传送完毕后，DHT11拉低总线50us，随后总线由上拉电阻拉高进入空闲状态。</p>
 </blockquote>
 <p>   数字0信号表示方法如图4所示</p>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/image4.png"></p>
+<p><img src="/posts/74b74ff/image4.png"></p>
 <p>图4 </p>
 <p>   数字1信号表示方法.如图5所示</p>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/image5.png"></p>
+<p><img src="/posts/74b74ff/image5.png"></p>
 <p>图5 </p>
 <p>补充内容：</p>
 <blockquote>
@@ -706,7 +712,7 @@
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">OLED_ShowCC_F16x16</span><span class="params">(<span class="type">uint8_t</span> Line, <span class="type">uint8_t</span> Column, <span class="type">uint8_t</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;      	</span><br><span class="line">	<span class="type">uint8_t</span> i;</span><br><span class="line">	<span class="built_in">OLED_SetCursor</span>((Line - <span class="number">1</span>) * <span class="number">2</span>, (Column - <span class="number">1</span>) * <span class="number">8</span>);		<span class="comment">//设置光标位置在上半部分</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">16</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">OLED_WriteData</span>(CC_F16x16[num*<span class="number">2</span>][i]);			<span class="comment">//显示上半部分内容</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">OLED_SetCursor</span>((Line - <span class="number">1</span>) * <span class="number">2</span> + <span class="number">1</span>, (Column - <span class="number">1</span>) * <span class="number">8</span>);	<span class="comment">//设置光标位置在下半部分</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">16</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">OLED_WriteData</span>(CC_F16x16[num*<span class="number">2</span>][i + <span class="number">16</span>]);		<span class="comment">//显示下半部分内容</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h1 id="五、效果展示"><a href="#五、效果展示" class="headerlink" title="五、效果展示"></a>五、效果展示</h1><p><img data-src="https://video-community.csdnimg.cn/vod-84deb4/b0747737ccb071ee80205420848d0102/snapshots/7dcf4bf9656140fb9d3befddf1832611-00002.jpg?auth_key=4861676783-0-0-20a1c743b0d9442a3b24219ed995bec5"></p>
+<h1 id="五、效果展示"><a href="#五、效果展示" class="headerlink" title="五、效果展示"></a>五、效果展示</h1><p><img src="https://video-community.csdnimg.cn/vod-84deb4/b0747737ccb071ee80205420848d0102/snapshots/7dcf4bf9656140fb9d3befddf1832611-00002.jpg?auth_key=4861676783-0-0-20a1c743b0d9442a3b24219ed995bec5"></p>
 <p>基于STM32的温湿度传感器+OLED屏显示的测试视频（有杂音，耳机党请注意）</p>
 <hr>
 <h1 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h1><p>本文章主要讲的是通过使用STM32实现了对DHT11温湿度传感器的数据采集和显示。通过对GPIO的配置和延时函数的使用，我们成功地与DHT11传感器进行了通信，并读取了温度和湿度数据。在软件开发方面，我们编写了针对DHT11传感器的初始化、数据读取和校验的函数，并成功地将获取到的数据显示在OLED屏幕上，使用户能够直观地了解当前环境的温度和湿度情况。</p>
@@ -755,7 +761,7 @@
   </entry>
   <entry>
     <title>Hello Blog</title>
-    <url>/2024/09/13/hello-world/</url>
+    <url>/posts/ca41cb46/</url>
     <content><![CDATA[<p>你好，这是我的第一篇博客。</p>
 ]]></content>
   </entry>

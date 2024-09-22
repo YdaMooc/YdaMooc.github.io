@@ -19,27 +19,27 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"ydamooc.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ydamooc.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="本文主要说明温湿度传感器（DHT11）在STM32下如何使用，并且结合OLED屏来达到显示的效果。喜欢的话可以点个赞和收藏噢！！以下内容均为查询相关资料撰写而成，如有侵权，请联系作者。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于STM32的温湿度传感器（DHT11）-OLED屏显示-超详细">
-<meta property="og:url" content="https://ydamooc.github.io/2024/09/13/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/index.html">
+<meta property="og:url" content="https://ydamooc.github.io/posts/74b74ff/index.html">
 <meta property="og:site_name" content="YdaMooc">
 <meta property="og:description" content="本文主要说明温湿度传感器（DHT11）在STM32下如何使用，并且结合OLED屏来达到显示的效果。喜欢的话可以点个赞和收藏噢！！以下内容均为查询相关资料撰写而成，如有侵权，请联系作者。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/stm32.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/oled.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/DHT11.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/ST-LinkV2.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect1.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect2.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect3.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/image1.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/image2.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/image3.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/image4.png">
-<meta property="og:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/image5.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/74b74ff/stm32.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/74b74ff/oled.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/74b74ff/DHT11.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/74b74ff/ST-LinkV2.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/74b74ff/connect1.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/74b74ff/connect2.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/74b74ff/connect3.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/74b74ff/image1.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/74b74ff/image2.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/74b74ff/image3.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/74b74ff/image4.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/74b74ff/image5.png">
 <meta property="og:image" content="https://video-community.csdnimg.cn/vod-84deb4/b0747737ccb071ee80205420848d0102/snapshots/7dcf4bf9656140fb9d3befddf1832611-00002.jpg?auth_key=4861676783-0-0-20a1c743b0d9442a3b24219ed995bec5">
 <meta property="article:published_time" content="2024-09-13T03:42:19.000Z">
 <meta property="article:modified_time" content="2024-09-22T07:02:39.878Z">
@@ -48,14 +48,14 @@
 <meta property="article:tag" content="OLED">
 <meta property="article:tag" content="DHT11">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ydamooc.github.io/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/stm32.png">
+<meta name="twitter:image" content="https://ydamooc.github.io/posts/74b74ff/stm32.png">
 
 
-<link rel="canonical" href="https://ydamooc.github.io/2024/09/13/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/">
+<link rel="canonical" href="https://ydamooc.github.io/posts/74b74ff/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ydamooc.github.io/2024/09/13/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/","path":"2024/09/13/基于STM32的温湿度传感器（DHT11）-OLED屏显示-超详细/","title":"基于STM32的温湿度传感器（DHT11）-OLED屏显示-超详细"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ydamooc.github.io/posts/74b74ff/","path":"posts/74b74ff/","title":"基于STM32的温湿度传感器（DHT11）-OLED屏显示-超详细"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>基于STM32的温湿度传感器（DHT11）-OLED屏显示-超详细 | YdaMooc</title>
@@ -172,7 +172,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -199,16 +199,16 @@
     </div>
     <ul class="links-of-recent-posts-list">
         <li class="links-of-recent-posts-item">
-          <a href="/2024/09/19/%E4%BD%BF%E7%94%A8finalshell%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88Ubuntu%EF%BC%89/" title="2024&#x2F;09&#x2F;19&#x2F;使用finalshell连接虚拟机（Ubuntu）&#x2F;">使用finalshell连接虚拟机（Ubuntu）</a>
+          <a href="/posts/59585/" title="posts&#x2F;59585&#x2F;">a</a>
         </li>
         <li class="links-of-recent-posts-item">
-          <a href="/2024/09/15/ESP32%E9%A9%B1%E5%8A%A8TFT%E6%98%BE%E7%A4%BA%E5%B1%8F%EF%BC%88%E9%85%8D%E7%BD%AE-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%EF%BC%89/" title="2024&#x2F;09&#x2F;15&#x2F;ESP32驱动TFT显示屏（配置-自定义字库）&#x2F;">ESP32驱动TFT显示屏（配置+自定义字库）</a>
+          <a href="/posts/87be2d43/" title="posts&#x2F;87be2d43&#x2F;">使用finalshell连接虚拟机（Ubuntu）</a>
         </li>
         <li class="links-of-recent-posts-item">
-          <a href="/2024/09/13/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/" title="2024&#x2F;09&#x2F;13&#x2F;基于STM32的土壤湿度传感器（FC-28）-OLED屏显示-超详细&#x2F;">基于STM32的土壤湿度传感器（FC-28）-OLED屏显示-超详细</a>
+          <a href="/posts/263a8102/" title="posts&#x2F;263a8102&#x2F;">ESP32驱动TFT显示屏（配置+自定义字库）</a>
         </li>
         <li class="links-of-recent-posts-item">
-          <a href="/2024/09/13/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/" title="2024&#x2F;09&#x2F;13&#x2F;基于STM32的温湿度传感器（DHT11）-OLED屏显示-超详细&#x2F;">基于STM32的温湿度传感器（DHT11）-OLED屏显示-超详细</a>
+          <a href="/posts/f70fc9bd/" title="posts&#x2F;f70fc9bd&#x2F;">基于STM32的土壤湿度传感器（FC-28）-OLED屏显示-超详细</a>
         </li>
     </ul>
   </div>
@@ -238,7 +238,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ydamooc.github.io/2024/09/13/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/">
+    <link itemprop="mainEntityOfPage" href="https://ydamooc.github.io/posts/74b74ff/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -326,27 +326,27 @@
 <h2 id="（二）硬件准备"><a href="#（二）硬件准备" class="headerlink" title="（二）硬件准备"></a>（二）硬件准备</h2><ol>
 <li>STM32模块</li>
 </ol>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/stm32.png"></p>
+<p><img src="/posts/74b74ff/stm32.png"></p>
 <ol>
 <li>OLED显示屏</li>
 </ol>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/oled.png"></p>
+<p><img src="/posts/74b74ff/oled.png"></p>
 <ol>
 <li>温湿度传感器（DHT11）</li>
 </ol>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/DHT11.png"></p>
+<p><img src="/posts/74b74ff/DHT11.png"></p>
 <ol start="4">
 <li>ST-Link V2（USB口）仿真器</li>
 </ol>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/ST-LinkV2.png"></p>
+<p><img src="/posts/74b74ff/ST-LinkV2.png"></p>
 <ol start="5">
 <li>适量杜邦线</li>
 </ol>
 <p>大约11根母对母杜邦线</p>
 <hr>
-<h1 id="二、接线图表"><a href="#二、接线图表" class="headerlink" title="二、接线图表"></a>二、接线图表</h1><p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect1.png"></p>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect2.png"></p>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/connect3.png"></p>
+<h1 id="二、接线图表"><a href="#二、接线图表" class="headerlink" title="二、接线图表"></a>二、接线图表</h1><p><img src="/posts/74b74ff/connect1.png"></p>
+<p><img src="/posts/74b74ff/connect2.png"></p>
+<p><img src="/posts/74b74ff/connect3.png"></p>
 <table>
 <thead>
 <tr>
@@ -428,7 +428,7 @@
 <p>​    DHT11工作原理是基于内部的湿度传感器和温度传感器，通过检测这两个传感器的信号变化，将湿度和温度转换为数字信号输出。它采用简单的串行通信协议（<strong>后面补充</strong>）与外部设备通信，发送包含温湿度数据的数据帧，用户则获取数据帧进行相关的处理使用。</p>
 </blockquote>
 <p>   经典应用电路图如图1所示</p>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/image1.png"></p>
+<p><img src="/posts/74b74ff/image1.png"></p>
 <p> 图1</p>
 <blockquote>
 <p>​    DATA 用于微处理器与 DHT11之间的通讯和同步,采用单总线数据格式,一次通讯时间4ms左右,数据分小数部分和整数部分,具体格式在下面说明,当前小数部分用于以后扩展,现读出为零.操作流程如下: </p>
@@ -440,21 +440,21 @@
 <p>​    数据等于“<strong>8bit湿度整数数据+8bit湿度小数数据</strong><strong>+8bi温度整数数据+8bit温度小数数据”</strong>所得结果的末8位。用户MCU发送一次开始信号后，DHT11从低功耗模式转换到高速模式，等待主机开始信号结束后，DHT11发送响应信号,送出40bit的数据,并触发一次信号采集，用户可选择读取部分数据。从模式下，DHT11接收到开始信号触发一次温湿度采集，如果没有接收到主机发送开始信号，DHT11不会主动进行温湿度采集。采集数据后转换到低速模式。</p>
 </blockquote>
 <p>   通讯过程如图2所示</p>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/image2.png"></p>
+<p><img src="/posts/74b74ff/image2.png"></p>
 <p>图2 </p>
 <blockquote>
 <p>​    总线空闲状态为高电平，主机把总线拉低等待DHT11响应，主机把总线拉低必须大于18毫秒，保证DHT11能检测到起始信号。DHT11接收到主机的开始信号后，等待主机开始信号结束，然后发送80us低电平响应信号。主机发送开始信号结束后，延时等待20-40us后，读取DHT11的响应信号，主机发送开始信号后，可以切换到输入模式，或者输出高电平均可，总线由上拉电阻拉高。</p>
 </blockquote>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/image3.png"></p>
+<p><img src="/posts/74b74ff/image3.png"></p>
 <p>图3 </p>
 <blockquote>
 <p>​    总线为低电平，说明DHT11发送响应信号，DHT11发送响应信号后，再把总线拉高80us，准备发送数据，每一bit数据都以50us低电平时隙开始，高电平的长短定了数据位是0还是1。格式见下面图示。如果读取响应信号为高电平，则DHT11没有响应，请检查线路是否连接正常。当最后一bit数据传送完毕后，DHT11拉低总线50us，随后总线由上拉电阻拉高进入空闲状态。</p>
 </blockquote>
 <p>   数字0信号表示方法如图4所示</p>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/image4.png"></p>
+<p><img src="/posts/74b74ff/image4.png"></p>
 <p>图4 </p>
 <p>   数字1信号表示方法.如图5所示</p>
-<p><img data-src="/./%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/image5.png"></p>
+<p><img src="/posts/74b74ff/image5.png"></p>
 <p>图5 </p>
 <p>补充内容：</p>
 <blockquote>
@@ -561,7 +561,7 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">OLED_ShowCC_F16x16</span><span class="params">(<span class="type">uint8_t</span> Line, <span class="type">uint8_t</span> Column, <span class="type">uint8_t</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;      	</span><br><span class="line">	<span class="type">uint8_t</span> i;</span><br><span class="line">	<span class="built_in">OLED_SetCursor</span>((Line - <span class="number">1</span>) * <span class="number">2</span>, (Column - <span class="number">1</span>) * <span class="number">8</span>);		<span class="comment">//设置光标位置在上半部分</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">16</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">OLED_WriteData</span>(CC_F16x16[num*<span class="number">2</span>][i]);			<span class="comment">//显示上半部分内容</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">OLED_SetCursor</span>((Line - <span class="number">1</span>) * <span class="number">2</span> + <span class="number">1</span>, (Column - <span class="number">1</span>) * <span class="number">8</span>);	<span class="comment">//设置光标位置在下半部分</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">16</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">OLED_WriteData</span>(CC_F16x16[num*<span class="number">2</span>][i + <span class="number">16</span>]);		<span class="comment">//显示下半部分内容</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h1 id="五、效果展示"><a href="#五、效果展示" class="headerlink" title="五、效果展示"></a>五、效果展示</h1><p><img data-src="https://video-community.csdnimg.cn/vod-84deb4/b0747737ccb071ee80205420848d0102/snapshots/7dcf4bf9656140fb9d3befddf1832611-00002.jpg?auth_key=4861676783-0-0-20a1c743b0d9442a3b24219ed995bec5"></p>
+<h1 id="五、效果展示"><a href="#五、效果展示" class="headerlink" title="五、效果展示"></a>五、效果展示</h1><p><img src="https://video-community.csdnimg.cn/vod-84deb4/b0747737ccb071ee80205420848d0102/snapshots/7dcf4bf9656140fb9d3befddf1832611-00002.jpg?auth_key=4861676783-0-0-20a1c743b0d9442a3b24219ed995bec5"></p>
 <p>基于STM32的温湿度传感器+OLED屏显示的测试视频（有杂音，耳机党请注意）</p>
 <hr>
 <h1 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h1><p>本文章主要讲的是通过使用STM32实现了对DHT11温湿度传感器的数据采集和显示。通过对GPIO的配置和延时函数的使用，我们成功地与DHT11传感器进行了通信，并读取了温度和湿度数据。在软件开发方面，我们编写了针对DHT11传感器的初始化、数据读取和校验的函数，并成功地将获取到的数据显示在OLED屏幕上，使用户能够直观地了解当前环境的温度和湿度情况。</p>
@@ -642,7 +642,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://ydamooc.github.io/2024/09/13/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88DHT11%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/" title="基于STM32的温湿度传感器（DHT11）-OLED屏显示-超详细">https://ydamooc.github.io/2024/09/13/基于STM32的温湿度传感器（DHT11）-OLED屏显示-超详细/</a>
+      <a href="https://ydamooc.github.io/posts/74b74ff/" title="基于STM32的温湿度传感器（DHT11）-OLED屏显示-超详细">https://ydamooc.github.io/posts/74b74ff/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -660,12 +660,12 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/09/13/hello-world/" rel="prev" title="Hello Blog">
+                <a href="/posts/ca41cb46/" rel="prev" title="Hello Blog">
                   <i class="fa fa-angle-left"></i> Hello Blog
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/09/13/%E5%9F%BA%E4%BA%8ESTM32%E7%9A%84%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88FC-28%EF%BC%89-OLED%E5%B1%8F%E6%98%BE%E7%A4%BA-%E8%B6%85%E8%AF%A6%E7%BB%86/" rel="next" title="基于STM32的土壤湿度传感器（FC-28）-OLED屏显示-超详细">
+                <a href="/posts/f70fc9bd/" rel="next" title="基于STM32的土壤湿度传感器（FC-28）-OLED屏显示-超详细">
                   基于STM32的土壤湿度传感器（FC-28）-OLED屏显示-超详细 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
@@ -750,7 +750,6 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
