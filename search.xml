@@ -121,6 +121,19 @@
       </tags>
   </entry>
   <entry>
+    <title>&#39;2025.3.24随记&#39;</title>
+    <url>/posts/a5e2f0ff/</url>
+    <content><![CDATA[<hr>
+<p>aaa</p>
+]]></content>
+      <categories>
+        <category>随记</category>
+      </categories>
+      <tags>
+        <tag>随记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用finalshell连接虚拟机（Ubuntu）</title>
     <url>/posts/87be2d43/</url>
     <content><![CDATA[<h1 id="一、下载finalshell"><a href="#一、下载finalshell" class="headerlink" title="一、下载finalshell"></a>一、下载finalshell</h1><p><a href="https://www.hostbuf.com/">FinalShell官网</a></p>
@@ -749,8 +762,8 @@
       </categories>
       <tags>
         <tag>STM32</tag>
-        <tag>DHT11</tag>
         <tag>OLED</tag>
+        <tag>DHT11</tag>
       </tags>
   </entry>
   <entry>
