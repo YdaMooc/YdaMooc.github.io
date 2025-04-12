@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>&#39;STM32-FreeRTOS和墨水屏的配置&#39;</title>
+    <title>STM32-FreeRTOS和墨水屏的配置</title>
     <url>/posts/c9defcd/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>嵌入式</category>
         <category>STM32</category>
+        <category>墨水屏</category>
       </categories>
       <tags>
         <tag>嵌入式</tag>
         <tag>STM32</tag>
-        <tag>OLED</tag>
-        <tag>FC-28</tag>
+        <tag>FreeRTOS</tag>
+        <tag>墨水屏</tag>
       </tags>
   </entry>
   <entry>
@@ -488,6 +489,7 @@
       <categories>
         <category>嵌入式</category>
         <category>STM32</category>
+        <category>OLED</category>
       </categories>
       <tags>
         <tag>嵌入式</tag>
@@ -778,6 +780,7 @@
       <categories>
         <category>嵌入式</category>
         <category>STM32</category>
+        <category>OLED</category>
       </categories>
       <tags>
         <tag>STM32</tag>
