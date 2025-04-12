@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>&#39;STM32-FreeRTOS和墨水屏的配置&#39;</title>
+    <url>/posts/c9defcd/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>嵌入式</category>
+        <category>STM32</category>
+      </categories>
+      <tags>
+        <tag>嵌入式</tag>
+        <tag>STM32</tag>
+        <tag>OLED</tag>
+        <tag>FC-28</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2025.3.24随记</title>
     <url>/posts/a5e2f0ff/</url>
     <content><![CDATA[<p>今天是2025.3.24，时间好快，距离上一篇博文已经是差不多半年前的事情了。</p>
