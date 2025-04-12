@@ -49,8 +49,42 @@
 <p> <img src="/posts/c9defcd/image18.png" alt="image18"></p>
 <p> <img src="/posts/c9defcd/image19.png" alt="image19"></p>
 </li>
-<li><p>接着我们为项目创建文件夹，分别为<strong>FreeRTOS_CORE</strong>和<strong>FreeRTOS_PORT</strong>，然后将项目中<strong>F</strong></p>
+<li><p>接着我们为项目创建文件夹，分别为<strong>FreeRTOS_CORE</strong>和<strong>FreeRTOS_PORT</strong>，然后根据下图，将相关的文件添加进这两个文件夹中。</p>
 <p> <img src="/posts/c9defcd/image20.png" alt="image20"></p>
+<p> <img src="/posts/c9defcd/image21.png" alt="image21"></p>
+<p> <img src="/posts/c9defcd/image22.png" alt="image22"></p>
+<p> <img src="/posts/c9defcd/image23.png" alt="image23"></p>
+</li>
+<li><p>添加完文件之后，打开魔术棒，然后点击<strong>C&#x2F;C++<strong>选项卡，将</strong>FreeRTOS</strong>文件夹中的.h路径添加进去。</p>
+<p> <img src="/posts/c9defcd/image24.png" alt="image24"></p>
+</li>
+<li><p>由于需要对<strong>stm32f10x_it.c</strong>文件进行修改，而在项目中是没有添加进去的，我们需要手动添加一下，该文件所在路径是<strong>FreeRTOS_ProjectTemplate\module</strong>，所以我们在左侧右键MODULE文件夹，然后选择<strong>Add Files to Group ‘MODULE’<strong>，然后选择</strong>stm32f10x_it.c</strong>文件添加进去。添加完之后需要编译一下，确保没有问题。</p>
+<p> <img src="/posts/c9defcd/image25.png" alt="image25"></p>
+<p> <img src="/posts/c9defcd/image26.png" alt="image26"></p>
+</li>
+<li><p>接着在左侧打开<strong>FreeRTOS_CORE</strong>文件夹，打开<strong>FreeRTOSConfig.h</strong>文件，在第49行处，将原来的17<em>1024修改成10</em>1024。</p>
+<p> <img src="/posts/c9defcd/image27.png" alt="image27"></p>
+</li>
+<li><p>在<strong>FreeRTOSConfig.h</strong>文件中的最一行前添加上必要的中断声明。</p>
+ <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> xPortPendSVHandler  PendSV_Handler </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> vPortSVCHandler SVC_Handler</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> xPortSysTickHandler SysTick_Handler</span></span><br></pre></td></tr></table></figure>
+
+<p> <img src="/posts/c9defcd/image28.png" alt="image28"></p>
+</li>
+<li><p>在<strong>stm32f10x_it.c</strong>文件中，找到<strong>SVC_Handler</strong>函数、<strong>PendSV_Handler</strong>函数和<strong>SysTick_Handler</strong>函数，将原来的代码注释掉，并且在<strong>main.c</strong>中添加上头文件，然后编译。</p>
+<p> <img src="/posts/c9defcd/image29.png" alt="image29"></p>
+<p> <img src="/posts/c9defcd/image30.png" alt="image30"></p>
+</li>
+</ol>
+<h3 id="1-4-对配置好的工程进行测试"><a href="#1-4-对配置好的工程进行测试" class="headerlink" title="1.4 对配置好的工程进行测试"></a>1.4 对配置好的工程进行测试</h3><ol>
+<li><p>在<strong>main.c</strong>文件开头创建一个任务句柄，并且创建一个任务函数，任务函数的形参必须为<strong>void</strong>*类型。创建完成后在函数里面写上以下代码。</p>
+<p> <img src="/posts/c9defcd/image31.png" alt="image31"></p>
+ <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">myTask</span><span class="params">(<span class="type">void</span>* pv)</span></span><br><span class="line">&#123;</span><br><span class="line">    GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);</span><br><span class="line">    </span><br><span class="line">    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;</span><br><span class="line">    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;</span><br><span class="line">    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">    GPIO_Init(GPIOC, &amp;GPIO_InitStructure);</span><br><span class="line">    GPIO_ResetBits(GPIOC,GPIO_Pin_13);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        GPIO_SetBits(GPIOC, GPIO_Pin_13);</span><br><span class="line">        vTaskDelay(<span class="number">1000</span>);</span><br><span class="line">        </span><br><span class="line">        GPIO_ResetBits(GPIOC, GPIO_Pin_13);</span><br><span class="line">        vTaskDelay(<span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<strong>main</strong>函数中，创建任务，并且启动调度器，代码修改如下。</p>
+ <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    board_init();</span><br><span class="line"></span><br><span class="line">    xTaskCreate(myTask, <span class="string">&quot;myTask&quot;</span>, <span class="number">1024</span>, <span class="literal">NULL</span>, <span class="number">2</span>, &amp;myTaskHandler);</span><br><span class="line">    vTaskStartScheduler();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译通过后，将程序下载到开发板中，可以看到LED灯每隔1秒闪烁一次，至此说明FreeRTOS相关的配置已经配置完成。</p>
+<p> <img src="/posts/c9defcd/gif1.gif" alt="gif1"></p>
 </li>
 </ol>
 <h2 id="二、配置墨水屏"><a href="#二、配置墨水屏" class="headerlink" title="二、配置墨水屏"></a>二、配置墨水屏</h2>]]></content>
