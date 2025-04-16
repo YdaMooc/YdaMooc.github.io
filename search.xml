@@ -3,7 +3,9 @@
   <entry>
     <title>STM32-FreeRTOS和墨水屏的配置</title>
     <url>/posts/c9defcd/</url>
-    <content><![CDATA[<h2 id="一、配置FreeRTOS"><a href="#一、配置FreeRTOS" class="headerlink" title="一、配置FreeRTOS"></a>一、配置FreeRTOS</h2><h3 id="1-1-下载FreeRTOS"><a href="#1-1-下载FreeRTOS" class="headerlink" title="1.1 下载FreeRTOS"></a>1.1 下载FreeRTOS</h3><ol>
+    <content><![CDATA[<center><h1>配置FreeRTOS</h1></center>
+
+<h3 id="1-1-下载FreeRTOS"><a href="#1-1-下载FreeRTOS" class="headerlink" title="1.1 下载FreeRTOS"></a>1.1 下载FreeRTOS</h3><ol>
 <li><p>打开FreeRTOS官网：<a href="https://www.freertos.org/">https://www.freertos.org/</a></p>
 <p> <img src="/posts/c9defcd/image1.png" alt="image1"></p>
 </li>
@@ -87,17 +89,15 @@
 <p> <img src="/posts/c9defcd/GIF1.gif" alt="gif1"></p>
 </li>
 </ol>
-<h2 id="二、配置墨水屏"><a href="#二、配置墨水屏" class="headerlink" title="二、配置墨水屏"></a>二、配置墨水屏</h2>]]></content>
+]]></content>
       <categories>
         <category>嵌入式</category>
         <category>STM32</category>
-        <category>墨水屏</category>
       </categories>
       <tags>
         <tag>嵌入式</tag>
         <tag>STM32</tag>
         <tag>FreeRTOS</tag>
-        <tag>墨水屏</tag>
       </tags>
   </entry>
   <entry>
