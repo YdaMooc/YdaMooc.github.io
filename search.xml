@@ -1,121 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>STM32-FreeRTOS的详细配置</title>
-    <url>/posts/c9defcd/</url>
-    <content><![CDATA[<center><h1>配置FreeRTOS</h1></center>
-
-<h3 id="1-1-下载FreeRTOS"><a href="#1-1-下载FreeRTOS" class="headerlink" title="1.1 下载FreeRTOS"></a>1.1 下载FreeRTOS</h3><ol>
-<li><p>打开FreeRTOS官网：<a href="https://www.freertos.org/">https://www.freertos.org/</a></p>
-<p> <img src="/posts/c9defcd/image1.png" alt="image1"></p>
-</li>
-<li><p>点击下载，并且选择”FreeRTOS 202212.01”版本，再点击Download按钮下载官方的资源包。</p>
-<p> <img src="/posts/c9defcd/image2.png" alt="image2"></p>
-</li>
-<li><p>下载好资源包后，解压到任意目录，例如我解压到了“G:\FreeRTOS”目录下，由于资源包里面包含的文件较多，解压相对会慢一点，大家需要耐心等待。</p>
-<p> <img src="/posts/c9defcd/image3.png" alt="image3"></p>
-<p> <img src="/posts/c9defcd/image4.png" alt="image4"></p>
-</li>
-<li><p>解压完成后，我们打开FreeRTOS文件夹中的FreeRTOSv202212.01文件夹，打开后可以看到里面有很多文件和文件夹，其中我们要使用的是<strong>FreeRTOS</strong>文件夹中的东西。</p>
-<p> <img src="/posts/c9defcd/image5.png" alt="image5"></p>
-</li>
-</ol>
-<h3 id="1-2-配置相关的文件"><a href="#1-2-配置相关的文件" class="headerlink" title="1.2 配置相关的文件"></a>1.2 配置相关的文件</h3><ol>
-<li><p>随后打开<strong>FreeRTOS</strong>文件夹，我们在这里面需要关注的是<strong>Source</strong>文件夹中的内容，以及<strong>Demo</strong>文件夹中的内容（后续会使用到其中的文件）。我们打开<strong>Source</strong>文件夹，在当前目录下，我们需要保留这一部分的文件，其他用不到可以删除掉。</p>
-<p> <img src="/posts/c9defcd/image6.png" alt="image6"></p>
-<p> <img src="/posts/c9defcd/image7.png" alt="image7"></p>
-</li>
-<li><p>接着再打开<strong>portable</strong>文件夹，在当前目录下，我们需要保留这一部分的文件，其他用不到可以删除掉。其中<strong>MemMang</strong>文件夹中存放的是内存管理的相关文件，<strong>RVDS</strong>文件夹中存放的各个内核相关的文件，我们这里使用的是STM32F103C8T6单片机，所以我们需要的是<strong>ARM_CM3</strong>文件夹中的内容，其他用不到可以删除掉。</p>
-<p> <img src="/posts/c9defcd/image8.png" alt="image8"></p>
-<p> <img src="/posts/c9defcd/image9.png" alt="image9"></p>
-<p> <img src="/posts/c9defcd/image10.png" alt="image10"></p>
-</li>
-<li><p>因为我们使用的是STM32F103C8T6单片机，在<strong>Source</strong>文件夹中还缺少FreeRTOS相关的配置文件，我们回到”FreeRTOSv202212.01\FreeRTOS”目录下，然后打开<strong>Demo</strong>文件夹，在里面找到<strong>CORTEX_STM32F103_Keil</strong>项目打开，将里面的<strong>FreeRTOSConfig.h</strong>文件复制到前面的<strong>Source</strong>文件夹中。</p>
-<p> <img src="/posts/c9defcd/image11.png" alt="image11"></p>
-<p> <img src="/posts/c9defcd/image12.png" alt="image12"></p>
-<p> <img src="/posts/c9defcd/image13.png" alt="image13"></p>
-</li>
-<li><p>接下来我们需要打开一个空白的STM32工程文件，本文使用的空白工程文件来自于<strong>立创开发板的地阔星STM32F103C8T6资料中的空白工程模板</strong>，大家可以自行<a href="https://wiki.lckfb.com/zh-hans/dkx-stm32f103c8t6/">点击下载地阔星资料</a>。当然使用别的空白工程模板也是可以的，只要能正常编译即可。</p>
-<p> <img src="/posts/c9defcd/image14.png" alt="image14"></p>
-</li>
-<li><p>下载解压后，打开<strong>第03章【立创·STM32F103C8T6开发板】软件资料</strong>中的<strong>空白工程模板</strong>文件夹，然后将里面的<strong>STM32F103C8T6_ProjectTemplate.zip</strong>解压到任意目录下，解压完成后，将名字修改成<strong>FreeRTOS_ProjectTemplate</strong>，方便后续操作。</p>
-<p> <img src="/posts/c9defcd/image15.png" alt="image15"></p>
-</li>
-<li><p>接着在<strong>FreeRTOS_ProjectTemplate</strong>中创建一个名为<strong>FreeRTOS</strong>的文件夹，然后回到”FreeRTOSv202212.01\FreeRTOS\Source”目录下，将前面我们保留的<strong>Source</strong>文件夹中的内容复制到<strong>FreeRTOS_ProjectTemplate</strong>中的<strong>FreeRTOS</strong>文件夹中。</p>
-<p> <img src="/posts/c9defcd/image16.png" alt="image16"></p>
-<p> <img src="/posts/c9defcd/image17.png" alt="image17"></p>
-</li>
-</ol>
-<h3 id="1-3-配置Keil中的STM32代码"><a href="#1-3-配置Keil中的STM32代码" class="headerlink" title="1.3 配置Keil中的STM32代码"></a>1.3 配置Keil中的STM32代码</h3><ol>
-<li><p>在<strong>FreeRTOS_ProjectTemplate</strong>中，根据下面路径，打开项目。打开后，我们先编译一次项目。</p>
-<p> <img src="/posts/c9defcd/image18.png" alt="image18"></p>
-<p> <img src="/posts/c9defcd/image19.png" alt="image19"></p>
-</li>
-<li><p>接着我们为项目创建文件夹，分别为<strong>FreeRTOS_CORE</strong>和<strong>FreeRTOS_PORT</strong>，然后根据下图，将相关的文件添加进这两个文件夹中。</p>
-<p> <img src="/posts/c9defcd/image20.png" alt="image20"></p>
-<p> <img src="/posts/c9defcd/image21.png" alt="image21"></p>
-<p> <img src="/posts/c9defcd/image22.png" alt="image22"></p>
-<p> <img src="/posts/c9defcd/image23.png" alt="image23"></p>
-</li>
-<li><p>添加完文件之后，打开魔术棒，然后点击<strong>C&#x2F;C++<strong>选项卡，将</strong>FreeRTOS</strong>文件夹中的.h路径添加进去。</p>
-<p> <img src="/posts/c9defcd/image24.png" alt="image24"></p>
-</li>
-<li><p>由于需要对<strong>stm32f10x_it.c</strong>文件进行修改，而在项目中是没有添加进去的，我们需要手动添加一下，该文件所在路径是<strong>FreeRTOS_ProjectTemplate\module</strong>，所以我们在左侧右键MODULE文件夹，然后选择<strong>Add Files to Group ‘MODULE’<strong>，然后选择</strong>stm32f10x_it.c</strong>文件添加进去。添加完之后需要编译一下，确保没有问题。</p>
-<p> <img src="/posts/c9defcd/image25.png" alt="image25"></p>
-<p> <img src="/posts/c9defcd/image26.png" alt="image26"></p>
-</li>
-<li><p>接着在左侧打开<strong>FreeRTOS_CORE</strong>文件夹，打开<strong>FreeRTOSConfig.h</strong>文件，在第49行处，将原来的17<em>1024修改成10</em>1024。</p>
-<p> <img src="/posts/c9defcd/image27.png" alt="image27"></p>
-</li>
-<li><p>在<strong>FreeRTOSConfig.h</strong>文件中的最一行前添加上必要的中断声明。</p>
- <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> xPortPendSVHandler  PendSV_Handler </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> vPortSVCHandler SVC_Handler</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> xPortSysTickHandler SysTick_Handler</span></span><br></pre></td></tr></table></figure>
-
-<p> <img src="/posts/c9defcd/image28.png" alt="image28"></p>
-</li>
-<li><p>在<strong>stm32f10x_it.c</strong>文件中，找到<strong>SVC_Handler</strong>函数、<strong>PendSV_Handler</strong>函数和<strong>SysTick_Handler</strong>函数，将原来的代码注释掉，并且在<strong>main.c</strong>中添加上头文件，然后编译。</p>
-<p> <img src="/posts/c9defcd/image29.png" alt="image29"></p>
-<p> <img src="/posts/c9defcd/image30.png" alt="image30"></p>
-</li>
-</ol>
-<h3 id="1-4-对配置好的工程进行测试"><a href="#1-4-对配置好的工程进行测试" class="headerlink" title="1.4 对配置好的工程进行测试"></a>1.4 对配置好的工程进行测试</h3><ol>
-<li><p>在<strong>main.c</strong>文件开头创建一个任务句柄，并且创建一个任务函数，任务函数的形参必须为<strong>void</strong>*类型。创建完成后在函数里面写上以下代码。</p>
-<p> <img src="/posts/c9defcd/image31.png" alt="image31"></p>
- <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">myTask</span><span class="params">(<span class="type">void</span>* pv)</span></span><br><span class="line">&#123;</span><br><span class="line">    GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);</span><br><span class="line">    </span><br><span class="line">    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;</span><br><span class="line">    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;</span><br><span class="line">    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">    GPIO_Init(GPIOC, &amp;GPIO_InitStructure);</span><br><span class="line">    GPIO_ResetBits(GPIOC,GPIO_Pin_13);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        GPIO_SetBits(GPIOC, GPIO_Pin_13);</span><br><span class="line">        vTaskDelay(<span class="number">1000</span>);</span><br><span class="line">        </span><br><span class="line">        GPIO_ResetBits(GPIOC, GPIO_Pin_13);</span><br><span class="line">        vTaskDelay(<span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<strong>main</strong>函数中，创建任务，并且启动调度器，代码修改如下。</p>
- <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    board_init();</span><br><span class="line"></span><br><span class="line">    xTaskCreate(myTask, <span class="string">&quot;myTask&quot;</span>, <span class="number">1024</span>, <span class="literal">NULL</span>, <span class="number">2</span>, &amp;myTaskHandler);</span><br><span class="line">    vTaskStartScheduler();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编译通过后，将程序下载到开发板中，可以看到LED灯每隔1秒闪烁一次，至此说明FreeRTOS相关的配置已经配置完成。</p>
-<p> <img src="/posts/c9defcd/GIF1.gif" alt="gif1"></p>
-</li>
-</ol>
+    <title>Hello Blog</title>
+    <url>/posts/ca41cb46/</url>
+    <content><![CDATA[<p>你好，这是我的第一篇博客。</p>
 ]]></content>
-      <categories>
-        <category>嵌入式</category>
-        <category>STM32</category>
-      </categories>
-      <tags>
-        <tag>嵌入式</tag>
-        <tag>STM32</tag>
-        <tag>FreeRTOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2025.3.24随记</title>
-    <url>/posts/a5e2f0ff/</url>
-    <content><![CDATA[<p>今天是2025.3.24，时间好快，距离上一篇博文已经是差不多半年前的事情了。</p>
-<p>这半年里感觉好像啥都没干，转眼我也要大四，准备实习了。看到身边人都在陆陆续续找工作，甚至有的已经找到了计算机大厂的offer，着实是羡慕，而我还在学校<strong>摆烂</strong>着，计划是在清明节假期把简历写完，拿去投递试试看，不过很没用底气呀，我觉得我还是没有什么实力的样子，不够自信。。。</p>
-<p>现在我在学校跟着老师做项目，但是这个项目因为我能力不足，换别的老师去帮忙做了，虽然一开始有点开心，觉得哎呀终于轻松了一点，但是过去半个星期反而觉得会不会不需要我了，当初进入团队的时候没有问清楚是做什么开发，谁曾想竟然是嵌入式Linux开发，这完全没接触过的东西，刚开始接触还很ok，觉得花点时间就能琢磨出来，可是实际上根本琢磨不出来，说直白点就是一直在浪费时间，现在那些板子、设备等东西都已经给老师了，具体后面怎么开发我也不知道，只能等消息了。</p>
-<p>除此之外，手头上还有一个传智杯的那个项目，这个项目真的很有意思，我都没想到能够进入国赛，说幸运吧，能够参加国赛，说不幸运吧，又进入了国赛。一开始我觉得我是不能进入的，就想着草草了事算了，然后那个项目拿来改改准备毕设就完了，结果进了国赛，刚好原设备又被我拆掉了，现在只能是用新设备去准备，新设备的代码也在重构，通讯部分一直琢磨不明白，都不知道咋办好，在接下来的假期还是得好好准备一下，争取能够把这个项目完善好，然后当作毕设啥都，这样子多少会轻松一点。（骗一下自己，哈哈哈哈）</p>
-<p>噢对，手上还有一个无线充电的项目欸，这个嘶，怎么说呢，对于我还是得查阅多一点资料才能自己做出来，虽然我和那个项目的队长说的时候也很委婉，但好像他觉得我能搞出来的样子，希望不要又烂尾了。（求求）好吧这还是主要看我自己的啦，不过上次也有查阅了一部分资料，应该问题不大，我预计用esp32来作为主控，应该没问题，哈哈哈哈，期待一下。</p>
-<p>这么样子下来，清明假期的事情还蛮多的欸，也不知道能不能按照原定计划进行，希望没问题的，这次假期会早一点回去，少一点时间花在路上，应该没问题的，应该，应该。。。好吧，今天就这样吧。。。</p>
-]]></content>
-      <categories>
-        <category>随记</category>
-      </categories>
-      <tags>
-        <tag>随记</tag>
-      </tags>
   </entry>
   <entry>
     <title>使用finalshell连接虚拟机（Ubuntu）</title>
@@ -227,6 +116,23 @@
       <tags>
         <tag>Ubuntu</tag>
         <tag>finalshell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2025.3.24随记</title>
+    <url>/posts/a5e2f0ff/</url>
+    <content><![CDATA[<p>今天是2025.3.24，时间好快，距离上一篇博文已经是差不多半年前的事情了。</p>
+<p>这半年里感觉好像啥都没干，转眼我也要大四，准备实习了。看到身边人都在陆陆续续找工作，甚至有的已经找到了计算机大厂的offer，着实是羡慕，而我还在学校<strong>摆烂</strong>着，计划是在清明节假期把简历写完，拿去投递试试看，不过很没用底气呀，我觉得我还是没有什么实力的样子，不够自信。。。</p>
+<p>现在我在学校跟着老师做项目，但是这个项目因为我能力不足，换别的老师去帮忙做了，虽然一开始有点开心，觉得哎呀终于轻松了一点，但是过去半个星期反而觉得会不会不需要我了，当初进入团队的时候没有问清楚是做什么开发，谁曾想竟然是嵌入式Linux开发，这完全没接触过的东西，刚开始接触还很ok，觉得花点时间就能琢磨出来，可是实际上根本琢磨不出来，说直白点就是一直在浪费时间，现在那些板子、设备等东西都已经给老师了，具体后面怎么开发我也不知道，只能等消息了。</p>
+<p>除此之外，手头上还有一个传智杯的那个项目，这个项目真的很有意思，我都没想到能够进入国赛，说幸运吧，能够参加国赛，说不幸运吧，又进入了国赛。一开始我觉得我是不能进入的，就想着草草了事算了，然后那个项目拿来改改准备毕设就完了，结果进了国赛，刚好原设备又被我拆掉了，现在只能是用新设备去准备，新设备的代码也在重构，通讯部分一直琢磨不明白，都不知道咋办好，在接下来的假期还是得好好准备一下，争取能够把这个项目完善好，然后当作毕设啥都，这样子多少会轻松一点。（骗一下自己，哈哈哈哈）</p>
+<p>噢对，手上还有一个无线充电的项目欸，这个嘶，怎么说呢，对于我还是得查阅多一点资料才能自己做出来，虽然我和那个项目的队长说的时候也很委婉，但好像他觉得我能搞出来的样子，希望不要又烂尾了。（求求）好吧这还是主要看我自己的啦，不过上次也有查阅了一部分资料，应该问题不大，我预计用esp32来作为主控，应该没问题，哈哈哈哈，期待一下。</p>
+<p>这么样子下来，清明假期的事情还蛮多的欸，也不知道能不能按照原定计划进行，希望没问题的，这次假期会早一点回去，少一点时间花在路上，应该没问题的，应该，应该。。。好吧，今天就这样吧。。。</p>
+]]></content>
+      <categories>
+        <category>随记</category>
+      </categories>
+      <tags>
+        <tag>随记</tag>
       </tags>
   </entry>
   <entry>
@@ -868,14 +774,108 @@
       </categories>
       <tags>
         <tag>STM32</tag>
-        <tag>DHT11</tag>
         <tag>OLED</tag>
+        <tag>DHT11</tag>
       </tags>
   </entry>
   <entry>
-    <title>Hello Blog</title>
-    <url>/posts/ca41cb46/</url>
-    <content><![CDATA[<p>你好，这是我的第一篇博客。</p>
+    <title>STM32-FreeRTOS的详细配置</title>
+    <url>/posts/c9defcd/</url>
+    <content><![CDATA[<center><h1>配置FreeRTOS</h1></center>
+
+<h3 id="1-1-下载FreeRTOS"><a href="#1-1-下载FreeRTOS" class="headerlink" title="1.1 下载FreeRTOS"></a>1.1 下载FreeRTOS</h3><ol>
+<li><p>打开FreeRTOS官网：<a href="https://www.freertos.org/">https://www.freertos.org/</a></p>
+<p> <img src="/posts/c9defcd/image1.png" alt="image1"></p>
+</li>
+<li><p>点击下载，并且选择”FreeRTOS 202212.01”版本，再点击Download按钮下载官方的资源包。</p>
+<p> <img src="/posts/c9defcd/image2.png" alt="image2"></p>
+</li>
+<li><p>下载好资源包后，解压到任意目录，例如我解压到了“G:\FreeRTOS”目录下，由于资源包里面包含的文件较多，解压相对会慢一点，大家需要耐心等待。</p>
+<p> <img src="/posts/c9defcd/image3.png" alt="image3"></p>
+<p> <img src="/posts/c9defcd/image4.png" alt="image4"></p>
+</li>
+<li><p>解压完成后，我们打开FreeRTOS文件夹中的FreeRTOSv202212.01文件夹，打开后可以看到里面有很多文件和文件夹，其中我们要使用的是<strong>FreeRTOS</strong>文件夹中的东西。</p>
+<p> <img src="/posts/c9defcd/image5.png" alt="image5"></p>
+</li>
+</ol>
+<h3 id="1-2-配置相关的文件"><a href="#1-2-配置相关的文件" class="headerlink" title="1.2 配置相关的文件"></a>1.2 配置相关的文件</h3><ol>
+<li><p>随后打开<strong>FreeRTOS</strong>文件夹，我们在这里面需要关注的是<strong>Source</strong>文件夹中的内容，以及<strong>Demo</strong>文件夹中的内容（后续会使用到其中的文件）。我们打开<strong>Source</strong>文件夹，在当前目录下，我们需要保留这一部分的文件，其他用不到可以删除掉。</p>
+<p> <img src="/posts/c9defcd/image6.png" alt="image6"></p>
+<p> <img src="/posts/c9defcd/image7.png" alt="image7"></p>
+</li>
+<li><p>接着再打开<strong>portable</strong>文件夹，在当前目录下，我们需要保留这一部分的文件，其他用不到可以删除掉。其中<strong>MemMang</strong>文件夹中存放的是内存管理的相关文件，<strong>RVDS</strong>文件夹中存放的各个内核相关的文件，我们这里使用的是STM32F103C8T6单片机，所以我们需要的是<strong>ARM_CM3</strong>文件夹中的内容，其他用不到可以删除掉。</p>
+<p> <img src="/posts/c9defcd/image8.png" alt="image8"></p>
+<p> <img src="/posts/c9defcd/image9.png" alt="image9"></p>
+<p> <img src="/posts/c9defcd/image10.png" alt="image10"></p>
+</li>
+<li><p>因为我们使用的是STM32F103C8T6单片机，在<strong>Source</strong>文件夹中还缺少FreeRTOS相关的配置文件，我们回到”FreeRTOSv202212.01\FreeRTOS”目录下，然后打开<strong>Demo</strong>文件夹，在里面找到<strong>CORTEX_STM32F103_Keil</strong>项目打开，将里面的<strong>FreeRTOSConfig.h</strong>文件复制到前面的<strong>Source</strong>文件夹中。</p>
+<p> <img src="/posts/c9defcd/image11.png" alt="image11"></p>
+<p> <img src="/posts/c9defcd/image12.png" alt="image12"></p>
+<p> <img src="/posts/c9defcd/image13.png" alt="image13"></p>
+</li>
+<li><p>接下来我们需要打开一个空白的STM32工程文件，本文使用的空白工程文件来自于<strong>立创开发板的地阔星STM32F103C8T6资料中的空白工程模板</strong>，大家可以自行<a href="https://wiki.lckfb.com/zh-hans/dkx-stm32f103c8t6/">点击下载地阔星资料</a>。当然使用别的空白工程模板也是可以的，只要能正常编译即可。</p>
+<p> <img src="/posts/c9defcd/image14.png" alt="image14"></p>
+</li>
+<li><p>下载解压后，打开<strong>第03章【立创·STM32F103C8T6开发板】软件资料</strong>中的<strong>空白工程模板</strong>文件夹，然后将里面的<strong>STM32F103C8T6_ProjectTemplate.zip</strong>解压到任意目录下，解压完成后，将名字修改成<strong>FreeRTOS_ProjectTemplate</strong>，方便后续操作。</p>
+<p> <img src="/posts/c9defcd/image15.png" alt="image15"></p>
+</li>
+<li><p>接着在<strong>FreeRTOS_ProjectTemplate</strong>中创建一个名为<strong>FreeRTOS</strong>的文件夹，然后回到”FreeRTOSv202212.01\FreeRTOS\Source”目录下，将前面我们保留的<strong>Source</strong>文件夹中的内容复制到<strong>FreeRTOS_ProjectTemplate</strong>中的<strong>FreeRTOS</strong>文件夹中。</p>
+<p> <img src="/posts/c9defcd/image16.png" alt="image16"></p>
+<p> <img src="/posts/c9defcd/image17.png" alt="image17"></p>
+</li>
+</ol>
+<h3 id="1-3-配置Keil中的STM32代码"><a href="#1-3-配置Keil中的STM32代码" class="headerlink" title="1.3 配置Keil中的STM32代码"></a>1.3 配置Keil中的STM32代码</h3><ol>
+<li><p>在<strong>FreeRTOS_ProjectTemplate</strong>中，根据下面路径，打开项目。打开后，我们先编译一次项目。</p>
+<p> <img src="/posts/c9defcd/image18.png" alt="image18"></p>
+<p> <img src="/posts/c9defcd/image19.png" alt="image19"></p>
+</li>
+<li><p>接着我们为项目创建文件夹，分别为<strong>FreeRTOS_CORE</strong>和<strong>FreeRTOS_PORT</strong>，然后根据下图，将相关的文件添加进这两个文件夹中。</p>
+<p> <img src="/posts/c9defcd/image20.png" alt="image20"></p>
+<p> <img src="/posts/c9defcd/image21.png" alt="image21"></p>
+<p> <img src="/posts/c9defcd/image22.png" alt="image22"></p>
+<p> <img src="/posts/c9defcd/image23.png" alt="image23"></p>
+</li>
+<li><p>添加完文件之后，打开魔术棒，然后点击<strong>C&#x2F;C++<strong>选项卡，将</strong>FreeRTOS</strong>文件夹中的.h路径添加进去。</p>
+<p> <img src="/posts/c9defcd/image24.png" alt="image24"></p>
+</li>
+<li><p>由于需要对<strong>stm32f10x_it.c</strong>文件进行修改，而在项目中是没有添加进去的，我们需要手动添加一下，该文件所在路径是<strong>FreeRTOS_ProjectTemplate\module</strong>，所以我们在左侧右键MODULE文件夹，然后选择<strong>Add Files to Group ‘MODULE’<strong>，然后选择</strong>stm32f10x_it.c</strong>文件添加进去。添加完之后需要编译一下，确保没有问题。</p>
+<p> <img src="/posts/c9defcd/image25.png" alt="image25"></p>
+<p> <img src="/posts/c9defcd/image26.png" alt="image26"></p>
+</li>
+<li><p>接着在左侧打开<strong>FreeRTOS_CORE</strong>文件夹，打开<strong>FreeRTOSConfig.h</strong>文件，在第49行处，将原来的17<em>1024修改成10</em>1024。</p>
+<p> <img src="/posts/c9defcd/image27.png" alt="image27"></p>
+</li>
+<li><p>在<strong>FreeRTOSConfig.h</strong>文件中的最一行前添加上必要的中断声明。</p>
+ <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> xPortPendSVHandler  PendSV_Handler </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> vPortSVCHandler SVC_Handler</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> xPortSysTickHandler SysTick_Handler</span></span><br></pre></td></tr></table></figure>
+
+<p> <img src="/posts/c9defcd/image28.png" alt="image28"></p>
+</li>
+<li><p>在<strong>stm32f10x_it.c</strong>文件中，找到<strong>SVC_Handler</strong>函数、<strong>PendSV_Handler</strong>函数和<strong>SysTick_Handler</strong>函数，将原来的代码注释掉，并且在<strong>main.c</strong>中添加上头文件，然后编译。</p>
+<p> <img src="/posts/c9defcd/image29.png" alt="image29"></p>
+<p> <img src="/posts/c9defcd/image30.png" alt="image30"></p>
+</li>
+</ol>
+<h3 id="1-4-对配置好的工程进行测试"><a href="#1-4-对配置好的工程进行测试" class="headerlink" title="1.4 对配置好的工程进行测试"></a>1.4 对配置好的工程进行测试</h3><ol>
+<li><p>在<strong>main.c</strong>文件开头创建一个任务句柄，并且创建一个任务函数，任务函数的形参必须为<strong>void</strong>*类型。创建完成后在函数里面写上以下代码。</p>
+<p> <img src="/posts/c9defcd/image31.png" alt="image31"></p>
+ <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">myTask</span><span class="params">(<span class="type">void</span>* pv)</span></span><br><span class="line">&#123;</span><br><span class="line">    GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);</span><br><span class="line">    </span><br><span class="line">    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;</span><br><span class="line">    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;</span><br><span class="line">    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">    GPIO_Init(GPIOC, &amp;GPIO_InitStructure);</span><br><span class="line">    GPIO_ResetBits(GPIOC,GPIO_Pin_13);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        GPIO_SetBits(GPIOC, GPIO_Pin_13);</span><br><span class="line">        vTaskDelay(<span class="number">1000</span>);</span><br><span class="line">        </span><br><span class="line">        GPIO_ResetBits(GPIOC, GPIO_Pin_13);</span><br><span class="line">        vTaskDelay(<span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<strong>main</strong>函数中，创建任务，并且启动调度器，代码修改如下。</p>
+ <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    board_init();</span><br><span class="line"></span><br><span class="line">    xTaskCreate(myTask, <span class="string">&quot;myTask&quot;</span>, <span class="number">1024</span>, <span class="literal">NULL</span>, <span class="number">2</span>, &amp;myTaskHandler);</span><br><span class="line">    vTaskStartScheduler();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译通过后，将程序下载到开发板中，可以看到LED灯每隔1秒闪烁一次，至此说明FreeRTOS相关的配置已经配置完成。</p>
+<p> <img src="/posts/c9defcd/GIF1.gif" alt="gif1"></p>
+</li>
+</ol>
 ]]></content>
+      <categories>
+        <category>嵌入式</category>
+        <category>STM32</category>
+      </categories>
+      <tags>
+        <tag>嵌入式</tag>
+        <tag>STM32</tag>
+        <tag>FreeRTOS</tag>
+      </tags>
   </entry>
 </search>
