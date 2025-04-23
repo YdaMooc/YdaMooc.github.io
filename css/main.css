@@ -1420,7 +1420,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #a8a3de;
+    background: #ffaf29;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2450,6 +2450,10 @@ pre code {
 .category-all-page .category-list-item {
   margin: 5px 10px;
 }
+.category-all-page .category-list-item::before {
+  content: "📍 ";
+  display: inline;
+}
 .category-all-page .category-list-count {
   font-size: 0.75em;
   background: #ccc;
@@ -2462,7 +2466,7 @@ pre code {
   text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
 }
 .category-all-page .category-list-child {
-  padding-left: 10px;
+  padding-left: 45px;
 }
 .event-list hr {
   background: #222;
