@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2025.3.24随记</title>
+    <url>/posts/a5e2f0ff/</url>
+    <content><![CDATA[<p>今天是2025.3.24，时间好快，距离上一篇博文已经是差不多半年前的事情了。</p>
+<p>这半年里感觉好像啥都没干，转眼我也要大四，准备实习了。看到身边人都在陆陆续续找工作，甚至有的已经找到了计算机大厂的offer，着实是羡慕，而我还在学校<strong>摆烂</strong>着，计划是在清明节假期把简历写完，拿去投递试试看，不过很没用底气呀，我觉得我还是没有什么实力的样子，不够自信。。。</p>
+<p>现在我在学校跟着老师做项目，但是这个项目因为我能力不足，换别的老师去帮忙做了，虽然一开始有点开心，觉得哎呀终于轻松了一点，但是过去半个星期反而觉得会不会不需要我了，当初进入团队的时候没有问清楚是做什么开发，谁曾想竟然是嵌入式Linux开发，这完全没接触过的东西，刚开始接触还很ok，觉得花点时间就能琢磨出来，可是实际上根本琢磨不出来，说直白点就是一直在浪费时间，现在那些板子、设备等东西都已经给老师了，具体后面怎么开发我也不知道，只能等消息了。</p>
+<p>除此之外，手头上还有一个传智杯的那个项目，这个项目真的很有意思，我都没想到能够进入国赛，说幸运吧，能够参加国赛，说不幸运吧，又进入了国赛。一开始我觉得我是不能进入的，就想着草草了事算了，然后那个项目拿来改改准备毕设就完了，结果进了国赛，刚好原设备又被我拆掉了，现在只能是用新设备去准备，新设备的代码也在重构，通讯部分一直琢磨不明白，都不知道咋办好，在接下来的假期还是得好好准备一下，争取能够把这个项目完善好，然后当作毕设啥都，这样子多少会轻松一点。（骗一下自己，哈哈哈哈）</p>
+<p>噢对，手上还有一个无线充电的项目欸，这个嘶，怎么说呢，对于我还是得查阅多一点资料才能自己做出来，虽然我和那个项目的队长说的时候也很委婉，但好像他觉得我能搞出来的样子，希望不要又烂尾了。（求求）好吧这还是主要看我自己的啦，不过上次也有查阅了一部分资料，应该问题不大，我预计用esp32来作为主控，应该没问题，哈哈哈哈，期待一下。</p>
+<p>这么样子下来，清明假期的事情还蛮多的欸，也不知道能不能按照原定计划进行，希望没问题的，这次假期会早一点回去，少一点时间花在路上，应该没问题的，应该，应该。。。好吧，今天就这样吧。。。</p>
+]]></content>
+      <categories>
+        <category>随记</category>
+      </categories>
+      <tags>
+        <tag>随记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>STM32-FreeRTOS的详细配置</title>
     <url>/posts/c9defcd/</url>
     <content><![CDATA[<center><h1>配置FreeRTOS</h1></center>
@@ -101,133 +118,10 @@
       </tags>
   </entry>
   <entry>
-    <title>2025.3.24随记</title>
-    <url>/posts/a5e2f0ff/</url>
-    <content><![CDATA[<p>今天是2025.3.24，时间好快，距离上一篇博文已经是差不多半年前的事情了。</p>
-<p>这半年里感觉好像啥都没干，转眼我也要大四，准备实习了。看到身边人都在陆陆续续找工作，甚至有的已经找到了计算机大厂的offer，着实是羡慕，而我还在学校<strong>摆烂</strong>着，计划是在清明节假期把简历写完，拿去投递试试看，不过很没用底气呀，我觉得我还是没有什么实力的样子，不够自信。。。</p>
-<p>现在我在学校跟着老师做项目，但是这个项目因为我能力不足，换别的老师去帮忙做了，虽然一开始有点开心，觉得哎呀终于轻松了一点，但是过去半个星期反而觉得会不会不需要我了，当初进入团队的时候没有问清楚是做什么开发，谁曾想竟然是嵌入式Linux开发，这完全没接触过的东西，刚开始接触还很ok，觉得花点时间就能琢磨出来，可是实际上根本琢磨不出来，说直白点就是一直在浪费时间，现在那些板子、设备等东西都已经给老师了，具体后面怎么开发我也不知道，只能等消息了。</p>
-<p>除此之外，手头上还有一个传智杯的那个项目，这个项目真的很有意思，我都没想到能够进入国赛，说幸运吧，能够参加国赛，说不幸运吧，又进入了国赛。一开始我觉得我是不能进入的，就想着草草了事算了，然后那个项目拿来改改准备毕设就完了，结果进了国赛，刚好原设备又被我拆掉了，现在只能是用新设备去准备，新设备的代码也在重构，通讯部分一直琢磨不明白，都不知道咋办好，在接下来的假期还是得好好准备一下，争取能够把这个项目完善好，然后当作毕设啥都，这样子多少会轻松一点。（骗一下自己，哈哈哈哈）</p>
-<p>噢对，手上还有一个无线充电的项目欸，这个嘶，怎么说呢，对于我还是得查阅多一点资料才能自己做出来，虽然我和那个项目的队长说的时候也很委婉，但好像他觉得我能搞出来的样子，希望不要又烂尾了。（求求）好吧这还是主要看我自己的啦，不过上次也有查阅了一部分资料，应该问题不大，我预计用esp32来作为主控，应该没问题，哈哈哈哈，期待一下。</p>
-<p>这么样子下来，清明假期的事情还蛮多的欸，也不知道能不能按照原定计划进行，希望没问题的，这次假期会早一点回去，少一点时间花在路上，应该没问题的，应该，应该。。。好吧，今天就这样吧。。。</p>
+    <title>Hello Blog</title>
+    <url>/posts/ca41cb46/</url>
+    <content><![CDATA[<p>你好，这是我的第一篇博客。</p>
 ]]></content>
-      <categories>
-        <category>随记</category>
-      </categories>
-      <tags>
-        <tag>随记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用finalshell连接虚拟机（Ubuntu）</title>
-    <url>/posts/87be2d43/</url>
-    <content><![CDATA[<h1 id="一、下载finalshell"><a href="#一、下载finalshell" class="headerlink" title="一、下载finalshell"></a>一、下载finalshell</h1><p><a href="https://www.hostbuf.com/">FinalShell官网</a></p>
-<blockquote>
-<p>进入官网，选择自己需要的版本下载即可。</p>
-</blockquote>
-<p><img src="/posts/87be2d43/image1.png"></p>
-<hr>
-<h1 id="二、指令输入"><a href="#二、指令输入" class="headerlink" title="二、指令输入"></a>二、指令输入</h1><h2 id="指令1"><a href="#指令1" class="headerlink" title="指令1"></a>指令1</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   这条指令是，更新系统中所有可用软件包的最新版本信息，但不会实际安装或升级软件包。这个命令通常是在安装新软件或升级现有软件之前运行的，以确保获取的是最新的软件包列表。</p>
-</blockquote>
-<p><strong>运行结果：</strong></p>
-<p><img src="/posts/87be2d43/image2.png"></p>
-<h2 id="指令2"><a href="#指令2" class="headerlink" title="指令2"></a>指令2</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install openssh-server -y</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   安装一个能够接受SSH连接的服务器。-y表示在安装过程种自动回答“yes”.</p>
-</blockquote>
-<p><strong>运行结果：</strong></p>
-<p><img src="/posts/87be2d43/image3.png"></p>
-<h2 id="指令3"><a href="#指令3" class="headerlink" title="指令3"></a>指令3</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl start ssh</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   运行SSH服务器是否正在运行。</p>
-</blockquote>
-<p><strong>运行结果：</strong></p>
-<p><img src="/posts/87be2d43/image4.png"></p>
-<h2 id="指令4"><a href="#指令4" class="headerlink" title="指令4"></a>指令4</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl status ssh</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   确定SSH服务器是否正在运行。active (running)表示服务器正在运行。</p>
-</blockquote>
-<p><strong>运行结果：</strong><br> <br><img src="/posts/87be2d43/image5.png"></p>
-<h2 id="指令5"><a href="#指令5" class="headerlink" title="指令5"></a>指令5</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ufw allow ssh</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   允许 SSH 流量通过防火墙。这非常重要，因为防火墙默认情况下会阻止所有传入的连接。通过运行这个命令，就能确保允许来自外部网络的 SSH 连接到系统里。</p>
-</blockquote>
-<p><strong>运行结果：</strong></p>
-<p><img src="/posts/87be2d43/image6.png"></p>
-<h2 id="指令6"><a href="#指令6" class="headerlink" title="指令6"></a>指令6</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ufw allow 22</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   允许通过 22 端口的流量，因为 SSH 默认使用 22 端口。通过运行这个命令，能确保允许来自外部网络的 SSH 连接到系统里。</p>
-</blockquote>
-<p><strong>运行结果：</strong></p>
-<p><img src="/posts/87be2d43/image7.png"></p>
-<h2 id="指令7"><a href="#指令7" class="headerlink" title="指令7"></a>指令7</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   显示当前防火墙的状态。其中可以看到22端口和ssh被防火墙允许通过。</p>
-</blockquote>
-<p><strong>运行结果：</strong></p>
-<p><img src="/posts/87be2d43/iamge8.png"></p>
-<h2 id="指令8"><a href="#指令8" class="headerlink" title="指令8"></a>指令8</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install net-tools -y</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   自动安装 net-tools 软件包，并且不会在安装过程中询问您是否确认。安装完成后，就可以使用 ifconfig 和其他工具来管理和查看网络连接信息。</p>
-</blockquote>
-<p><strong>运行结果：</strong></p>
-<p><img src="/posts/87be2d43/image9.png"></p>
-<h2 id="指令9"><a href="#指令9" class="headerlink" title="指令9"></a>指令9</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令解释：</strong></p>
-<blockquote>
-<p>   查看虚拟机IP地址</p>
-</blockquote>
-<p><strong>运行结果：</strong></p>
-<p><img src="/posts/87be2d43/iamge10.png"></p>
-<hr>
-<h1 id="三、使用finalshell连接虚拟机"><a href="#三、使用finalshell连接虚拟机" class="headerlink" title="三、使用finalshell连接虚拟机"></a>三、使用finalshell连接虚拟机</h1><blockquote>
-<p>   打开finalshell后，点击左上角，查看连接管理器，然后添加连接，选择SSH连接（Linux）</p>
-</blockquote>
-<p><img src="/posts/87be2d43/image11.png"></p>
-<blockquote>
-<p>   依次输入名称、IP地址和用户名密码等相关信息。输入完后直接按确定即可。</p>
-</blockquote>
-<p><img src="/posts/87be2d43/iamge12.png"></p>
-<blockquote>
-<p>   回到连接管理器中，双击刚刚所添加的连接。</p>
-</blockquote>
-<p><img src="/posts/87be2d43/image13.png"></p>
-<blockquote>
-<p>   出现弹窗口，点击 “接受并保存”，出现连接主机成功的字样就代表我们成功使用finalshell连接上虚拟机了。</p>
-</blockquote>
-<p><img src="/posts/87be2d43/image14.png"></p>
-<p><img src="/posts/87be2d43/image15.png"></p>
-<blockquote>
-<p>   补充：finalshell带有文件管理系统，可以不用进入虚拟机更加方便地进行一些操作 。如下图：</p>
-</blockquote>
-<p><img src="/posts/87be2d43/image16.png"><br>​</p>
-]]></content>
-      <categories>
-        <category>Ubuntu</category>
-        <category>finalshell</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>finalshell</tag>
-      </tags>
   </entry>
   <entry>
     <title>ESP32驱动TFT显示屏（配置+自定义字库）</title>
@@ -347,6 +241,118 @@
         <tag>ESP32</tag>
         <tag>TFT</tag>
         <tag>ST7735S</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用finalshell连接虚拟机（Ubuntu）</title>
+    <url>/posts/87be2d43/</url>
+    <content><![CDATA[<h1 id="一、下载finalshell"><a href="#一、下载finalshell" class="headerlink" title="一、下载finalshell"></a>一、下载finalshell</h1><p><a href="https://www.hostbuf.com/">FinalShell官网</a></p>
+<blockquote>
+<p>进入官网，选择自己需要的版本下载即可。</p>
+</blockquote>
+<p><img src="/posts/87be2d43/image1.png"></p>
+<hr>
+<h1 id="二、指令输入"><a href="#二、指令输入" class="headerlink" title="二、指令输入"></a>二、指令输入</h1><h2 id="指令1"><a href="#指令1" class="headerlink" title="指令1"></a>指令1</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   这条指令是，更新系统中所有可用软件包的最新版本信息，但不会实际安装或升级软件包。这个命令通常是在安装新软件或升级现有软件之前运行的，以确保获取的是最新的软件包列表。</p>
+</blockquote>
+<p><strong>运行结果：</strong></p>
+<p><img src="/posts/87be2d43/image2.png"></p>
+<h2 id="指令2"><a href="#指令2" class="headerlink" title="指令2"></a>指令2</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install openssh-server -y</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   安装一个能够接受SSH连接的服务器。-y表示在安装过程种自动回答“yes”.</p>
+</blockquote>
+<p><strong>运行结果：</strong></p>
+<p><img src="/posts/87be2d43/image3.png"></p>
+<h2 id="指令3"><a href="#指令3" class="headerlink" title="指令3"></a>指令3</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl start ssh</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   运行SSH服务器是否正在运行。</p>
+</blockquote>
+<p><strong>运行结果：</strong></p>
+<p><img src="/posts/87be2d43/image4.png"></p>
+<h2 id="指令4"><a href="#指令4" class="headerlink" title="指令4"></a>指令4</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl status ssh</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   确定SSH服务器是否正在运行。active (running)表示服务器正在运行。</p>
+</blockquote>
+<p><strong>运行结果：</strong><br> <br><img src="/posts/87be2d43/image5.png"></p>
+<h2 id="指令5"><a href="#指令5" class="headerlink" title="指令5"></a>指令5</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ufw allow ssh</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   允许 SSH 流量通过防火墙。这非常重要，因为防火墙默认情况下会阻止所有传入的连接。通过运行这个命令，就能确保允许来自外部网络的 SSH 连接到系统里。</p>
+</blockquote>
+<p><strong>运行结果：</strong></p>
+<p><img src="/posts/87be2d43/image6.png"></p>
+<h2 id="指令6"><a href="#指令6" class="headerlink" title="指令6"></a>指令6</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ufw allow 22</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   允许通过 22 端口的流量，因为 SSH 默认使用 22 端口。通过运行这个命令，能确保允许来自外部网络的 SSH 连接到系统里。</p>
+</blockquote>
+<p><strong>运行结果：</strong></p>
+<p><img src="/posts/87be2d43/image7.png"></p>
+<h2 id="指令7"><a href="#指令7" class="headerlink" title="指令7"></a>指令7</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   显示当前防火墙的状态。其中可以看到22端口和ssh被防火墙允许通过。</p>
+</blockquote>
+<p><strong>运行结果：</strong></p>
+<p><img src="/posts/87be2d43/iamge8.png"></p>
+<h2 id="指令8"><a href="#指令8" class="headerlink" title="指令8"></a>指令8</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install net-tools -y</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   自动安装 net-tools 软件包，并且不会在安装过程中询问您是否确认。安装完成后，就可以使用 ifconfig 和其他工具来管理和查看网络连接信息。</p>
+</blockquote>
+<p><strong>运行结果：</strong></p>
+<p><img src="/posts/87be2d43/image9.png"></p>
+<h2 id="指令9"><a href="#指令9" class="headerlink" title="指令9"></a>指令9</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令解释：</strong></p>
+<blockquote>
+<p>   查看虚拟机IP地址</p>
+</blockquote>
+<p><strong>运行结果：</strong></p>
+<p><img src="/posts/87be2d43/iamge10.png"></p>
+<hr>
+<h1 id="三、使用finalshell连接虚拟机"><a href="#三、使用finalshell连接虚拟机" class="headerlink" title="三、使用finalshell连接虚拟机"></a>三、使用finalshell连接虚拟机</h1><blockquote>
+<p>   打开finalshell后，点击左上角，查看连接管理器，然后添加连接，选择SSH连接（Linux）</p>
+</blockquote>
+<p><img src="/posts/87be2d43/image11.png"></p>
+<blockquote>
+<p>   依次输入名称、IP地址和用户名密码等相关信息。输入完后直接按确定即可。</p>
+</blockquote>
+<p><img src="/posts/87be2d43/iamge12.png"></p>
+<blockquote>
+<p>   回到连接管理器中，双击刚刚所添加的连接。</p>
+</blockquote>
+<p><img src="/posts/87be2d43/image13.png"></p>
+<blockquote>
+<p>   出现弹窗口，点击 “接受并保存”，出现连接主机成功的字样就代表我们成功使用finalshell连接上虚拟机了。</p>
+</blockquote>
+<p><img src="/posts/87be2d43/image14.png"></p>
+<p><img src="/posts/87be2d43/image15.png"></p>
+<blockquote>
+<p>   补充：finalshell带有文件管理系统，可以不用进入虚拟机更加方便地进行一些操作 。如下图：</p>
+</blockquote>
+<p><img src="/posts/87be2d43/image16.png"><br>​</p>
+]]></content>
+      <categories>
+        <category>Ubuntu</category>
+        <category>finalshell</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>finalshell</tag>
       </tags>
   </entry>
   <entry>
@@ -868,14 +874,8 @@
       </categories>
       <tags>
         <tag>STM32</tag>
-        <tag>DHT11</tag>
         <tag>OLED</tag>
+        <tag>DHT11</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello Blog</title>
-    <url>/posts/ca41cb46/</url>
-    <content><![CDATA[<p>你好，这是我的第一篇博客。</p>
-]]></content>
   </entry>
 </search>

@@ -13,7 +13,7 @@ document.addEventListener('page:loaded', () => {
         newElement.innerHTML = element.innerHTML;
         newElement.className = 'mermaid';
         box.appendChild(newElement);
-        if (CONFIG.codeblock.copy_button.enable) {
+        if (CONFIG.copycode.enable) {
           NexT.utils.registerCopyButton(box, box, element.textContent);
         }
         const parent = element.parentNode;
