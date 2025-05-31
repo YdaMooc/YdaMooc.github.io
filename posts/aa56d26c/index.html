@@ -41,16 +41,32 @@
 <meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531162826098.png">
 <meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531163252523.png">
 <meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531163414844.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531163702577.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531163914647.png">
 <meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531164126893.png">
 <meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531164024981.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531164241962.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531164411743.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531164559141.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531164647754.png">
 <meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531164748598.png">
 <meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531164823941.png">
 <meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531164931149.png">
 <meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531165019851.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531165057343.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531165204071.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531165240134.png">
 <meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531165503692.png">
 <meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531165613836.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531165750319.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531165842841.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531170234406.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531170312688.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531170409822.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/image-20250531170430504.png">
+<meta property="og:image" content="https://ydamooc.github.io/posts/aa56d26c/1000004905.gif">
 <meta property="article:published_time" content="2025-05-31T09:15:19.000Z">
-<meta property="article:modified_time" content="2025-05-31T09:46:19.400Z">
+<meta property="article:modified_time" content="2025-05-31T09:52:36.557Z">
 <meta property="article:author" content="YdaMooc">
 <meta property="article:tag" content="GD32">
 <meta name="twitter:card" content="summary">
@@ -183,7 +199,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -281,7 +297,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-05-31 17:15:19 / 修改时间：17:46:19" itemprop="dateCreated datePublished" datetime="2025-05-31T17:15:19+08:00">2025-05-31</time>
+      <time title="创建时间：2025-05-31 17:15:19 / 修改时间：17:52:36" itemprop="dateCreated datePublished" datetime="2025-05-31T17:15:19+08:00">2025-05-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -358,32 +374,22 @@
 <li><p>接着再次打开EIDE，在EIDE项目中的项目资源中，分别创建三个虚拟文件夹（CMSIS、Firmware、App），和普通文件夹（User、Hardware、Doc）。</p>
 <p> <img src="/posts/aa56d26c/image-20250531163252523.png" alt="image-20250531163252523"></p>
 <p> <img src="/posts/aa56d26c/image-20250531163414844.png" alt="image-20250531163414844"></p>
+<p> 创建好后，在CMSIS文件夹中添加上\template\CMSIS\GD\GD32F4xx\Source路径下的system_gd32f4xx.c和\template\CMSIS\GD\GD32F4xx\Source\ARM路径下的startup_gd32f450_470.s两个文件（我使用的是GD32F470，所以选择这个startup文件）。</p>
+<p> <img src="/posts/aa56d26c/image-20250531163702577.png" alt="image-20250531163702577"></p>
+<p> 接着再在Firmware中添加\template\Firmware\Source中的所有文件。</p>
+<p> <img src="/posts/aa56d26c/image-20250531163914647.png" alt="image-20250531163914647"></p>
 </li>
-</ol>
-<p>创建好后，在CMSIS文件夹中添加上\template\CMSIS\GD\GD32F4xx\Source路径下的system_gd32f4xx.c和\template\CMSIS\GD\GD32F4xx\Source\ARM路径下的startup_gd32f450_470.s两个文件（我使用的是GD32F470，所以选择这个startup文件）。</p>
-<pre><code>![image-20250531163702577](./使用VSCode开发GD32的项目环境配置/image-20250531163702577.png)
-</code></pre>
-<p>接着再在Firmware中添加\template\Firmware\Source中的所有文件。</p>
-<pre><code>![image-20250531163914647](./使用VSCode开发GD32的项目环境配置/image-20250531163914647.png)
-</code></pre>
-<ol start="5">
 <li><p>在GD官网下载好芯片支持包后，找个地方解压。</p>
 <p> <img src="/posts/aa56d26c/image-20250531164126893.png" alt="image-20250531164126893"></p>
 <p> <img src="/posts/aa56d26c/image-20250531164024981.png" alt="image-20250531164024981"></p>
+<p> 接着打开VSCode中的EIDE，在EIDE项目一栏中的芯片支持包上点击加号选择官方的芯片支持包，我们选择来自磁盘，然后打开到刚刚解压的文件夹里面，就可以看到我们需要的支持包了（GigaDevice.GD32F4xx_DFP.3.2.0.pack）。</p>
+<p> <img src="/posts/aa56d26c/image-20250531164241962.png" alt="image-20250531164241962"></p>
+<p> <img src="/posts/aa56d26c/image-20250531164411743.png" alt="image-20250531164411743"></p>
+<p> 选择安装之后，可以看到出现了一个GD32F4xx_DFP的一栏，我们点击上面的选择芯片，我所使用的芯片是GD32F470ZGT6，所以我就输入选择GD32F470ZG。</p>
+<p> <img src="/posts/aa56d26c/image-20250531164559141.png" alt="image-20250531164559141"></p>
+<p> 选择好后，GD32F4xx_DFP一栏可以展开下面的信息，就说明成功了。</p>
+<p> <img src="/posts/aa56d26c/image-20250531164647754.png" alt="image-20250531164647754"></p>
 </li>
-</ol>
-<p>接着打开VSCode中的EIDE，在EIDE项目一栏中的芯片支持包上点击加号选择官方的芯片支持包，我们选择来自磁盘，然后打开到刚刚解压的文件夹里面，就可以看到我们需要的支持包了（GigaDevice.GD32F4xx_DFP.3.2.0.pack）。</p>
-<pre><code>![image-20250531164241962](./使用VSCode开发GD32的项目环境配置/image-20250531164241962.png)
-
-![image-20250531164411743](./使用VSCode开发GD32的项目环境配置/image-20250531164411743.png)
-</code></pre>
-<p>选择安装之后，可以看到出现了一个GD32F4xx_DFP的一栏，我们点击上面的选择芯片，我所使用的芯片是GD32F470ZGT6，所以我就输入选择GD32F470ZG。</p>
-<pre><code>![image-20250531164559141](./使用VSCode开发GD32的项目环境配置/image-20250531164559141.png)
-</code></pre>
-<p>选择好后，GD32F4xx_DFP一栏可以展开下面的信息，就说明成功了。</p>
-<pre><code>![image-20250531164647754](./使用VSCode开发GD32的项目环境配置/image-20250531164647754.png)
-</code></pre>
-<ol start="6">
 <li><p>接着在构建配置一栏中，点击切换编译器，选择AC5的这个</p>
 <p> <img src="/posts/aa56d26c/image-20250531164748598.png" alt="image-20250531164748598"></p>
 <p> <img src="/posts/aa56d26c/image-20250531164823941.png" alt="image-20250531164823941"></p>
@@ -391,45 +397,33 @@
 <li><p>然后修改烧录配置，点击切换烧录器，由于我使用的是DAPLink，那就选择OpenOCD这一个。</p>
 <p> <img src="/posts/aa56d26c/image-20250531164931149.png" alt="image-20250531164931149"></p>
 <p> <img src="/posts/aa56d26c/image-20250531165019851.png" alt="image-20250531165019851"></p>
+<p> 在烧录配置里面的芯片配置修改成stm32f4xx.cfg，同时接口配置也需要修改，修改成cmsis-dap.cfg。</p>
+<p> <img src="/posts/aa56d26c/image-20250531165057343.png" alt="image-20250531165057343"></p>
+<p> <img src="/posts/aa56d26c/image-20250531165204071.png" alt="image-20250531165204071"></p>
+<p> <img src="/posts/aa56d26c/image-20250531165240134.png" alt="image-20250531165240134"></p>
 </li>
-</ol>
-<p>在烧录配置里面的芯片配置修改成stm32f4xx.cfg，同时接口配置也需要修改，修改成cmsis-dap.cfg。</p>
-<pre><code>![image-20250531165057343](./使用VSCode开发GD32的项目环境配置/image-20250531165057343.png)
-
-![image-20250531165204071](./使用VSCode开发GD32的项目环境配置/image-20250531165204071.png)
-
-![image-20250531165240134](./使用VSCode开发GD32的项目环境配置/image-20250531165240134.png)
-</code></pre>
-<ol start="8">
 <li><p>接着我们还需要添加头文件目录，展开C&#x2F;C++属性，点击包含目录一栏上的添加包含路径按钮，分别把一下四个路径添加进去。</p>
 <p> <img src="/posts/aa56d26c/image-20250531165503692.png" alt="image-20250531165503692"></p>
 </li>
 <li><p>到此EIDE的工程基本上是创建完成了，接下来我们进行简单的测试。点击VSCode的资源管理器回到我们的项目工作区。因为我们是通过官方提供的资料移植的，所以有些配置我们需要自己修改。</p>
 <p> <img src="/posts/aa56d26c/image-20250531165613836.png" alt="image-20250531165613836"></p>
+<p> 打开 gd32f4xx_it.c 文件，将 void SysTick_Handler(void) 函数里面的 led_spark(); 删除掉。</p>
+<p> <img src="/posts/aa56d26c/image-20250531165750319.png" alt="image-20250531165750319"></p>
+<p> 再打开 main.h 文件，将 void led_spark(void);  删除掉。</p>
+<p> <img src="/posts/aa56d26c/image-20250531165842841.png" alt="image-20250531165842841"></p>
+<p> 我们回到 main.c 文件中，将里面的代码替换成下面这一段代码，这一段代码是简单的流水灯测试，每个人使用的板子不一定一样，引脚配置啥的需要根据自己实际情况来配置。如果使用的是立创梁山派，那就可以直接参考我下面的代码。</p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;gd32f4xx.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;gd32f4xx_rcu.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;main.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;systick.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line"></span><br><span class="line">    systick_config();</span><br><span class="line"></span><br><span class="line">    rcu_periph_clock_enable(RCU_GPIOE);</span><br><span class="line">    gpio_mode_set(GPIOE, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO_PIN_3);</span><br><span class="line">    gpio_output_options_set(GPIOE, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_3);</span><br><span class="line"></span><br><span class="line">    rcu_periph_clock_enable(RCU_GPIOD);</span><br><span class="line">    gpio_mode_set(GPIOD, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO_PIN_7);</span><br><span class="line">    gpio_output_options_set(GPIOD, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_7);</span><br><span class="line"></span><br><span class="line">    rcu_periph_clock_enable(RCU_GPIOG);</span><br><span class="line">    gpio_mode_set(GPIOG, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO_PIN_3);</span><br><span class="line">    gpio_output_options_set(GPIOG, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_3);</span><br><span class="line"></span><br><span class="line">    rcu_periph_clock_enable(RCU_GPIOA);</span><br><span class="line">    gpio_mode_set(GPIOA, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO_PIN_5);</span><br><span class="line">    gpio_output_options_set(GPIOA, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_5);</span><br><span class="line"></span><br><span class="line">    <span class="type">uint16_t</span> timeNumber = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        gpio_bit_set(GPIOE, GPIO_PIN_3);</span><br><span class="line">        delay_1ms(timeNumber);</span><br><span class="line">        gpio_bit_set(GPIOD, GPIO_PIN_7);</span><br><span class="line">        delay_1ms(timeNumber);</span><br><span class="line">        gpio_bit_set(GPIOG, GPIO_PIN_3);</span><br><span class="line">        delay_1ms(timeNumber);</span><br><span class="line">        gpio_bit_set(GPIOA, GPIO_PIN_5);</span><br><span class="line">        delay_1ms(timeNumber);</span><br><span class="line"></span><br><span class="line">        gpio_bit_reset(GPIOA, GPIO_PIN_5);</span><br><span class="line">        delay_1ms(timeNumber);</span><br><span class="line">        gpio_bit_reset(GPIOG, GPIO_PIN_3);</span><br><span class="line">        delay_1ms(timeNumber);</span><br><span class="line">        gpio_bit_reset(GPIOD, GPIO_PIN_7);</span><br><span class="line">        delay_1ms(timeNumber);</span><br><span class="line">        gpio_bit_reset(GPIOE, GPIO_PIN_3);</span><br><span class="line">        delay_1ms(timeNumber);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 修改好 main.c 的代码后，我们点击右上角的构建，也可以按快捷键 F7，之后就等待构建完成。</p>
+<p> <img src="/posts/aa56d26c/image-20250531170234406.png" alt="image-20250531170234406"></p>
+<p> <img src="/posts/aa56d26c/image-20250531170312688.png" alt="image-20250531170312688"></p>
+<p> 构建完成后，再点击右上角的烧录，快捷键是 Ctrl+Alt+D ，烧录完成会显示出下面的信息。</p>
+<p> <img src="/posts/aa56d26c/image-20250531170409822.png" alt="image-20250531170409822"></p>
+<p> <img src="/posts/aa56d26c/image-20250531170430504.png" alt="image-20250531170430504"></p>
+<p> 成功后，出现如下效果，说明已经成功了。</p>
+<p> <img src="/posts/aa56d26c/1000004905.gif" alt="1000004905"></p>
 </li>
 </ol>
-<p>打开 gd32f4xx_it.c 文件，将 void SysTick_Handler(void) 函数里面的 led_spark(); 删除掉。</p>
-<pre><code>![image-20250531165750319](./使用VSCode开发GD32的项目环境配置/image-20250531165750319.png)
-</code></pre>
-<p>再打开 main.h 文件，将 void led_spark(void);  删除掉。</p>
-<pre><code>![image-20250531165842841](./使用VSCode开发GD32的项目环境配置/image-20250531165842841.png)
-</code></pre>
-<p>我们回到 main.c 文件中，将里面的代码替换成下面这一段代码，这一段代码是简单的流水灯测试，每个人使用的板子不一定一样，引脚配置啥的需要根据自己实际情况来配置。如果使用的是立创梁山派，那就可以直接参考我下面的代码。</p>
-<pre><code><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;gd32f4xx.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;gd32f4xx_rcu.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;main.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;systick.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line"></span><br><span class="line">    systick_config();</span><br><span class="line"></span><br><span class="line">    rcu_periph_clock_enable(RCU_GPIOE);</span><br><span class="line">    gpio_mode_set(GPIOE, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO_PIN_3);</span><br><span class="line">    gpio_output_options_set(GPIOE, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_3);</span><br><span class="line"></span><br><span class="line">    rcu_periph_clock_enable(RCU_GPIOD);</span><br><span class="line">    gpio_mode_set(GPIOD, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO_PIN_7);</span><br><span class="line">    gpio_output_options_set(GPIOD, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_7);</span><br><span class="line"></span><br><span class="line">    rcu_periph_clock_enable(RCU_GPIOG);</span><br><span class="line">    gpio_mode_set(GPIOG, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO_PIN_3);</span><br><span class="line">    gpio_output_options_set(GPIOG, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_3);</span><br><span class="line"></span><br><span class="line">    rcu_periph_clock_enable(RCU_GPIOA);</span><br><span class="line">    gpio_mode_set(GPIOA, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO_PIN_5);</span><br><span class="line">    gpio_output_options_set(GPIOA, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_5);</span><br><span class="line"></span><br><span class="line">    <span class="type">uint16_t</span> timeNumber = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        gpio_bit_set(GPIOE, GPIO_PIN_3);</span><br><span class="line">        delay_1ms(timeNumber);</span><br><span class="line">        gpio_bit_set(GPIOD, GPIO_PIN_7);</span><br><span class="line">        delay_1ms(timeNumber);</span><br><span class="line">        gpio_bit_set(GPIOG, GPIO_PIN_3);</span><br><span class="line">        delay_1ms(timeNumber);</span><br><span class="line">        gpio_bit_set(GPIOA, GPIO_PIN_5);</span><br><span class="line">        delay_1ms(timeNumber);</span><br><span class="line"></span><br><span class="line">        gpio_bit_reset(GPIOA, GPIO_PIN_5);</span><br><span class="line">        delay_1ms(timeNumber);</span><br><span class="line">        gpio_bit_reset(GPIOG, GPIO_PIN_3);</span><br><span class="line">        delay_1ms(timeNumber);</span><br><span class="line">        gpio_bit_reset(GPIOD, GPIO_PIN_7);</span><br><span class="line">        delay_1ms(timeNumber);</span><br><span class="line">        gpio_bit_reset(GPIOE, GPIO_PIN_3);</span><br><span class="line">        delay_1ms(timeNumber);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</code></pre>
-<p>修改好 main.c 的代码后，我们点击右上角的构建，也可以按快捷键 F7，之后就等待构建完成。</p>
-<pre><code>![image-20250531170234406](./使用VSCode开发GD32的项目环境配置/image-20250531170234406.png)
-
-![image-20250531170312688](./使用VSCode开发GD32的项目环境配置/image-20250531170312688.png)
-</code></pre>
-<p>构建完成后，再点击右上角的烧录，快捷键是 Ctrl+Alt+D ，烧录完成会显示出下面的信息。</p>
-<pre><code>![image-20250531170409822](./使用VSCode开发GD32的项目环境配置/image-20250531170409822.png)
-
-![image-20250531170430504](./使用VSCode开发GD32的项目环境配置/image-20250531170430504.png)
-</code></pre>
-<p>成功后，出现如下效果，说明已经成功了。</p>
-<pre><code>![1000004905](./使用VSCode开发GD32的项目环境配置/1000004905.gif)
-</code></pre>
 
     </div>
 
