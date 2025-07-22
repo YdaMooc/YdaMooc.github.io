@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>GD32F4的USART串口开发笔记</title>
+    <url>/posts/abaa1519/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>使用VSCode开发GD32的项目环境配置</title>
     <url>/posts/aa56d26c/</url>
     <content><![CDATA[<ol>
